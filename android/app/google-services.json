@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "639871639152",
+    "project_id": "disastermanagement-420515",
+    "storage_bucket": "disastermanagement-420515.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639871639152:android:49eee444186843c92e5eb5",
+        "android_client_info": {
+          "package_name": "com.mikestudio.disastermangement"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSRinKVkGwXXOF3PxFiGOyrVa3mRMrJxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

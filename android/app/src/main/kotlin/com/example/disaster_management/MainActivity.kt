@@ -1,4 +1,4 @@
-package com.example.disaster_management
+package com.mikestudio.disastermangement
 
 import io.flutter.embedding.android.FlutterActivity
 
