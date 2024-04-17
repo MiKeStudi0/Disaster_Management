@@ -1,25 +1,47 @@
-import 'package:disaster_management/screen/MapScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'package:firebase_core/firebase_core.dart';
+import 'package:disaster_management/Features/Authentication/Riverpod/providers.dart';
+import 'package:disaster_management/Features/Authentication/Screens/authentication_screen.dart';
+
+import 'package:disaster_management/Features/Meetings/Screens/main_bottom_navigation.dart.dart';
+import 'package:disaster_management/Constant/error.dart';
+
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your applicaflutter tion.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authenticationState = ref.watch(authStateProvider);
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-      
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+      debugShowCheckedModeBanner: false,
+      title: 'Zoom Clone',
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.black,
       ),
-      home: const MapPage()
+      home: authenticationState.when(
+        data: (data) {
+          if (data != null) {
+            return const ButtomNavigationTabs();
+          }
+          return const AuthenticationScreen();
+        },
+        error: (error, stackTrace) => ErrorScreen(
+          errorText: error.toString(),
+        ),
+        loading: () => const CircularProgressIndicator(),
+      ),
     );
   }
 }
-
