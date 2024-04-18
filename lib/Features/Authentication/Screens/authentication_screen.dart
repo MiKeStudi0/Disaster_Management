@@ -1,3 +1,4 @@
+import 'package:disaster_management/screen/MapScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:disaster_management/Features/Authentication/Screens/sign_in_screen.dart';
 import 'package:disaster_management/Features/Authentication/Screens/sign_up_screen.dart';
@@ -88,6 +89,18 @@ class AuthenticationScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => const SignInScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    ButtonWidget(
+                      text: 'Map',
+                      color: Colors.grey,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MapPage(),
                           ),
                         );
                       },
