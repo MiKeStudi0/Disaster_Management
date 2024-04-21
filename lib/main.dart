@@ -1,46 +1,70 @@
+import 'package:disaster_management/conferance/static.dart';
+import 'package:disaster_management/conferance/vedioconf.dart';
+import 'package:disaster_management/weather/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:firebase_core/firebase_core.dart';
-import 'package:disaster_management/Features/Authentication/Riverpod/providers.dart';
-import 'package:disaster_management/Features/Authentication/Screens/authentication_screen.dart';
-
-import 'package:disaster_management/Features/Meetings/Screens/main_bottom_navigation.dart.dart';
-import 'package:disaster_management/Constant/error.dart';
-
-import 'firebase_options.dart';
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(const ProviderScope(child: MyApp()));
+void main() {
+  runApp(MyApp());
 }
 
-class MyApp extends ConsumerWidget {
-  const MyApp({super.key});
-
+class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final authenticationState = ref.watch(authStateProvider);
+  Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Zoom Clone',
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.black,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: authenticationState.when(
-        data: (data) {
-          if (data != null) {
-            return const ButtomNavigationTabs();
-          }
-          return const AuthenticationScreen();
-        },
-        error: (error, stackTrace) => ErrorScreen(
-          errorText: error.toString(),
+      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Home Page'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DisasterManagementPage()),
+                );
+              },
+              child: Text('static demo'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          VideoConferencePage(conferenceID: 'Test 2')),
+                );
+              },
+              child: Text('Go to Page 3'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                );
+              },
+              child: Text('weather demo'),
+            ),
+          ],
         ),
-        loading: () => const CircularProgressIndicator(),
       ),
     );
   }
