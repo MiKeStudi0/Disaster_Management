@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:disaster_management/screen/staticdata_screen.dart';
+import 'package:disaster_management/screen/volunteer_screen.dart';
 import 'package:disaster_management/weather/data/alerts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -361,7 +363,14 @@ class HomeScreen extends StatelessWidget {
                               IconButton(
                                 icon: Icon(Icons.person,
                                     size: 40, color: Colors.white),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            VolunteerScreen()),
+                                  );
+                                },
                               ),
                               Text(
                                 'Volunteer',
@@ -415,7 +424,13 @@ class HomeScreen extends StatelessWidget {
                               IconButton(
                                 icon: Icon(Icons.info,
                                     size: 40, color: Colors.white),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              DisasterManagementPage()));
+                                },
                               ),
                               Text(
                                 'Info',

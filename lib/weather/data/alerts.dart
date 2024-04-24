@@ -35,7 +35,7 @@ class _AlertBoxState extends State<AlertBox> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: 50,
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(

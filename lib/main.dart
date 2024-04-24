@@ -1,9 +1,13 @@
 import 'package:disaster_management/conferance/static.dart';
 import 'package:disaster_management/conferance/vedioconf.dart';
-import 'package:disaster_management/weather/home_screen.dart';
+import 'package:disaster_management/firebase_options.dart';
+import 'package:disaster_management/screen/home_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MyApp());
 }
 
