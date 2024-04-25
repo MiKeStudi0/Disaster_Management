@@ -1,9 +1,6 @@
 import 'dart:core';
 import 'package:disaster_management/screen/page_model.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class VolunteerList extends StatelessWidget {
@@ -36,7 +33,7 @@ class VolunteerList extends StatelessWidget {
           ),
           backgroundColor: Colors.transparent,
           body: Container(
-            decoration: BoxDecoration(),
+            decoration: const BoxDecoration(),
             child: StreamBuilder<QuerySnapshot>(
               stream: _stream,
               builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -76,7 +73,7 @@ class VolunteerList extends StatelessWidget {
                   );
                 }
 
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               },
             ),
           ),
@@ -112,8 +109,10 @@ class Volunteer extends StatelessWidget {
 
             return Container(
                 width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.symmetric(horizontal: 3.0, vertical: 8.0),
-                margin: EdgeInsets.symmetric(horizontal: 2.0, vertical: 3.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 3.0, vertical: 8.0),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 2.0, vertical: 3.0),
                 child: InkWell(
                   child: Card(
                       elevation: 5.0,
@@ -122,7 +121,7 @@ class Volunteer extends StatelessWidget {
                       ),
                       child: Container(
                           width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 10.0, vertical: 10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -134,12 +133,12 @@ class Volunteer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.symmetric(
+                                    padding: const EdgeInsets.symmetric(
                                         horizontal: 4.0, vertical: 4.0),
-                                    margin: EdgeInsets.symmetric(
+                                    margin: const EdgeInsets.symmetric(
                                         horizontal: 3.0, vertical: 3.0),
                                     child: Text('${data['name']}',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 18.0,
                                             fontWeight: FontWeight.bold,
                                             color: Color.fromARGB(
@@ -147,12 +146,12 @@ class Volunteer extends StatelessWidget {
                                   ),
                                   // SizedBox(height: 5.0),
                                   Container(
-                                    padding: EdgeInsets.symmetric(
+                                    padding: const EdgeInsets.symmetric(
                                         horizontal: 4.0, vertical: 4.0),
-                                    margin: EdgeInsets.symmetric(
+                                    margin: const EdgeInsets.symmetric(
                                         horizontal: 3.0, vertical: 3.0),
                                     child: Text('${data['number']}',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 18.0,
                                             fontWeight: FontWeight.bold,
                                             color: Color.fromARGB(
@@ -160,15 +159,15 @@ class Volunteer extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              SizedBox(width: 12.0),
+                              const SizedBox(width: 12.0),
                               Container(
                                   child: Row(
                                 children: [
-                                  Icon(Icons.location_on,
+                                  const Icon(Icons.location_on,
                                       color: Color.fromARGB(255, 75, 77, 76)),
-                                  SizedBox(width: 5.0),
+                                  const SizedBox(width: 5.0),
                                   Text('${data['district']}',
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 15.0,
                                         fontWeight: FontWeight.bold,
                                         // color: Color.fromARGB(153, 23, 1, 1),
@@ -179,7 +178,7 @@ class Volunteer extends StatelessWidget {
                           ))),
                 ));
           }
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         });
   }
 }
