@@ -1,7 +1,9 @@
 // ignore_for_file: deprecated_member_use
 import 'package:disaster_management/screen/page_model.dart';
+import 'package:disaster_management/weather/data/my_data.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:weather/weather.dart';
 
 class DisasterManagementPage extends StatelessWidget {
   final List<QuestionAnswer> faq = [

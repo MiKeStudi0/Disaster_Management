@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class PageModel extends StatelessWidget {
   const PageModel({super.key});
-
+//to use as a page
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +68,7 @@ class PageModel extends StatelessWidget {
   }
 }
 
+//to use as a widget
 Widget pagemodel1(BuildContext context) {
   return Scaffold(
     backgroundColor: Colors.black,
