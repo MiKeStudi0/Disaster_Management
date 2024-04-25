@@ -64,7 +64,26 @@ class _RegistrationFormState extends State<RegistrationForm> {
             'gender': _genderController.text,
             'phoneNumber': _phoneNumberController.text,
           });
-          _navigateToHomeScreen(context);
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => FutureBuilder(
+                      future: _determinePosition(),
+                      builder: (context, snap) {
+                        if (snap.hasData) {
+                          return BlocProvider<WeatherBlocBloc>(
+                            create: (context) => WeatherBlocBloc()
+                              ..add(FetchWeather(snap.data as Position)),
+                            child: const HomeScreen(),
+                          );
+                        } else {
+                          return const Scaffold(
+                            body: Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          );
+                        }
+                      })));
         }
       } catch (e) {
         print('Error saving user data: $e');
