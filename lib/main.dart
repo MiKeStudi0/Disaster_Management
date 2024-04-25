@@ -1,5 +1,4 @@
-import 'package:disaster_management/volunteer/bloc/weather_bloc_bloc.dart';
-import 'package:disaster_management/conferance/vedioconf.dart';
+import 'package:disaster_management/weather/bloc/weather_bloc_bloc.dart';
 import 'package:disaster_management/firebase_options.dart';
 import 'package:disaster_management/screen/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -40,61 +39,6 @@ class MyApp extends StatelessWidget {
             }
           }),
       debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home Page'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          VideoConferencePage(conferenceID: 'Test 2')),
-                );
-              },
-              child: Text('Go to Page 3'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => FutureBuilder(
-                          future: _determinePosition(),
-                          builder: (context, snap) {
-                            if (snap.hasData) {
-                              return BlocProvider<WeatherBlocBloc>(
-                                create: (context) => WeatherBlocBloc()
-                                  ..add(FetchWeather(snap.data as Position)),
-                                child: const HomeScreen(),
-                              );
-                            } else {
-                              return const Scaffold(
-                                body: Center(
-                                  child: CircularProgressIndicator(),
-                                ),
-                              );
-                            }
-                          }),
-                    ));
-              },
-              child: Text('weather demo'),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
