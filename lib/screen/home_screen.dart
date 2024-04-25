@@ -4,6 +4,7 @@ import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
 import 'package:disaster_management/screen/staticdata_screen.dart';
 import 'package:disaster_management/screen/volunteer_screen.dart';
 import 'package:disaster_management/weather/data/alerts.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +21,15 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.logout,
+              color: Colors.white54,
+            ),
+            onPressed: () => _signOut(context),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(40, 1.2 * kToolbarHeight, 40, 20),
@@ -524,5 +534,15 @@ Widget getWeatherIcon(int code) {
       return Image.asset('Assets/Images/cloudy.png', scale: 5);
     default:
       return Image.asset('Assets/Images/cloudy.png', scale: 5);
+  }
+}
+
+Future<void> _signOut(BuildContext context) async {
+  try {
+    await FirebaseAuth.instance.signOut();
+    // Navigate to the login screen or any other screen you desire
+  } catch (e) {
+    print('Error signing out: $e');
+    // Handle sign-out error
   }
 }
