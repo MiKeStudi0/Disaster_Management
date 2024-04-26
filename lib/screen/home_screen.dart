@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
+import 'package:disaster_management/screen/MapScreen.dart';
 import 'package:disaster_management/screen/staticdata_screen.dart';
 import 'package:disaster_management/screen/volunteer_screen.dart';
 import 'package:disaster_management/weather/data/alerts.dart';
@@ -95,9 +96,9 @@ class HomeScreen extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            const Text(
-                              'Good Morning',
-                              style: TextStyle(
+                            Text(
+                              getGreetingMessage() as String,
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 25,
@@ -333,7 +334,13 @@ class HomeScreen extends StatelessWidget {
                                     IconButton(
                                       icon: const Icon(Icons.map,
                                           size: 40, color: Colors.white),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    MapPage()));
+                                      },
                                     ),
                                     const Text(
                                       'Map',
@@ -544,5 +551,37 @@ Future<void> _signOut(BuildContext context) async {
   } catch (e) {
     print('Error signing out: $e');
     // Handle sign-out error
+  }
+}
+
+enum TimeOfDayEnum {
+  MORNING,
+  AFTERNOON,
+  EVENING,
+}
+
+TimeOfDayEnum getTimeOfDay() {
+  final hour = DateTime.now().hour;
+  if (hour >= 5 && hour < 12) {
+    return TimeOfDayEnum.MORNING;
+  } else if (hour >= 12 && hour < 18) {
+    return TimeOfDayEnum.AFTERNOON;
+  } else {
+    return TimeOfDayEnum.EVENING;
+  }
+}
+
+Object getGreetingMessage() {
+  final timeOfDay = getTimeOfDay();
+  switch (timeOfDay) {
+    case TimeOfDayEnum.MORNING:
+      return 'Good Morning';
+
+    case TimeOfDayEnum.AFTERNOON:
+      return 'Good Afternoon';
+    case TimeOfDayEnum.EVENING:
+      return 'Good Evening';
+    default:
+      return "Good evening";
   }
 }

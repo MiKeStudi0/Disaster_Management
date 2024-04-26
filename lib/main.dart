@@ -2,6 +2,7 @@ import 'package:disaster_management/authservices/authenticate.dart';
 import 'package:disaster_management/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

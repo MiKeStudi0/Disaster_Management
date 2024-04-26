@@ -35,6 +35,12 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Migration map",
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
           target: _center,
@@ -117,15 +123,10 @@ class _MapPageState extends State<MapPage> {
 
     double dLon = lon2 - lon1;
     double y = math.sin(dLon) * math.cos(lat2);
-    double x = math.cos(lat1) * math.sin(lat2) - math.sin(lat1) * math.cos(lat2) * math.cos(dLon);
+    double x = math.cos(lat1) * math.sin(lat2) -
+        math.sin(lat1) * math.cos(lat2) * math.cos(dLon);
 
     double bearing = math.atan2(y, x);
     return (bearing >= 0) ? bearing : (2 * math.pi + bearing);
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: MapPage(),
-  ));
 }
