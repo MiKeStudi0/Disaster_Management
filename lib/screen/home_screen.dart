@@ -491,12 +491,12 @@ class HomeScreen extends StatelessWidget {
                                 Column(
                                   children: [
                                     IconButton(
-                                      icon: const Icon(Icons.lock,
+                                      icon: const Icon(Icons.person,
                                           size: 40, color: Colors.white),
                                       onPressed: () {},
                                     ),
                                     const Text(
-                                      'Lock',
+                                      ' Profile',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,

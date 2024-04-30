@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
 import 'package:disaster_management/screen/home_screen.dart';
 import 'package:disaster_management/screen/page_model.dart';
@@ -12,7 +14,60 @@ class RegistrationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        pagemodel1(context),
+        Scaffold(
+          backgroundColor: Colors.blueGrey,
+          extendBodyBehindAppBar: true,
+          body: Padding(
+            padding:
+                const EdgeInsets.fromLTRB(40, 1.2 * kToolbarHeight, 40, 20),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: const AlignmentDirectional(3, -0.2),
+                    child: Container(
+                      height: 300,
+                      width: 300,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color.fromARGB(255, 32, 3, 176),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: const AlignmentDirectional(-3, -0.2),
+                    child: Container(
+                      height: 300,
+                      width: 300,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color.fromARGB(255, 32, 3, 176),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: const AlignmentDirectional(0, -1.0),
+                    child: Container(
+                      height: 300,
+                      width: 300,
+                      decoration: const BoxDecoration(
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                  ),
+                  BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
+                    child: Container(
+                      decoration:
+                          const BoxDecoration(color: Colors.transparent),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
@@ -121,10 +176,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
           TextFormField(
             controller: _nameController,
             decoration: InputDecoration(
-              labelText: 'Name',
-              labelStyle: TextStyle(color: Colors.greenAccent),
-              hintStyle: TextStyle(color: Colors.white),
-            ),
+                labelText: 'Name',
+                labelStyle: TextStyle(color: Colors.greenAccent),
+                hintStyle: TextStyle(color: Colors.white24),
+                hintText: "Enter your Name"),
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter your name';
@@ -135,10 +190,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
           TextFormField(
             controller: _ageController,
             decoration: InputDecoration(
-              labelText: 'Age',
-              labelStyle: TextStyle(color: Colors.greenAccent),
-              hintStyle: TextStyle(color: Colors.white),
-            ),
+                labelText: 'Age',
+                labelStyle: TextStyle(color: Colors.greenAccent),
+                hintStyle: TextStyle(color: Colors.white24),
+                hintText: "Wnter your Age"),
             keyboardType: TextInputType.number,
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -150,10 +205,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
           TextFormField(
             controller: _addressController,
             decoration: InputDecoration(
-              labelText: 'Address',
-              labelStyle: TextStyle(color: Colors.greenAccent),
-              hintStyle: TextStyle(color: Colors.white),
-            ),
+                labelText: 'Address',
+                labelStyle: TextStyle(color: Colors.greenAccent),
+                hintStyle: TextStyle(color: Colors.white24),
+                hintText: "Enter Your Address"),
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter your address';
@@ -171,12 +226,15 @@ class _RegistrationFormState extends State<RegistrationForm> {
             decoration: InputDecoration(
               labelText: 'Gender',
               labelStyle: TextStyle(color: Colors.greenAccent),
-              hintStyle: TextStyle(color: Colors.white),
+              hintStyle: TextStyle(color: Colors.white24),
             ),
             items: <String>['Male', 'Female'].map((String value) {
               return DropdownMenuItem<String>(
                 value: value,
-                child: Text(value),
+                child: SizedBox(
+                  width: 200, // Specify the desired width here
+                  child: Text(value),
+                ),
               );
             }).toList(),
             validator: (value) {
@@ -189,10 +247,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
           TextFormField(
             controller: _phoneNumberController,
             decoration: InputDecoration(
-              labelText: 'Phone Number',
-              labelStyle: TextStyle(color: Colors.greenAccent),
-              hintStyle: TextStyle(color: Colors.red),
-            ),
+                labelText: 'Phone Number',
+                labelStyle: TextStyle(color: Colors.greenAccent),
+                hintStyle: TextStyle(color: Colors.white24),
+                hintText: "Enter your Phone Number"),
             keyboardType: TextInputType.phone,
             validator: (value) {
               if (value == null || value.isEmpty) {
