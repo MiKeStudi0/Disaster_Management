@@ -1,16 +1,11 @@
 import 'dart:ui';
 
-import 'package:disaster_management/conferance/ongoing_meets.dart';
+import 'package:disaster_management/conferance/vedioconf.dart';
 import 'package:flutter/material.dart';
 
-class MeetScreen extends StatefulWidget {
-  const MeetScreen({super.key});
+class ongoingscreen extends StatelessWidget {
+  const ongoingscreen({super.key});
 
-  @override
-  State<MeetScreen> createState() => _MeetScreenState();
-}
-
-class _MeetScreenState extends State<MeetScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +19,7 @@ class _MeetScreenState extends State<MeetScreen> {
           color: Colors.white,
         ),
         title: const Text(
-          'Meet Screen',
+          'Ongoing Calls',
           style: TextStyle(color: Colors.white), // Set title color to white
         ),
       ),
@@ -82,9 +77,11 @@ class _MeetScreenState extends State<MeetScreen> {
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ongoingscreen()));
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  VideoConferencePage(conferenceID: 'Call 1')),
+                        );
                       },
                       child: Container(
                         width: MediaQuery.of(context).size.width / 3,
@@ -102,11 +99,11 @@ class _MeetScreenState extends State<MeetScreen> {
                         child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.meeting_room,
+                            Icon(Icons.video_call,
                                 color: Colors.white), // Example icon
                             SizedBox(
                                 height: 8), // Spacing between icon and text
-                            Text('Join a meet',
+                            Text('Call 1',
                                 style: TextStyle(
                                     color: Colors.white)), // Example text
                           ],
@@ -115,7 +112,12 @@ class _MeetScreenState extends State<MeetScreen> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        _showCodeInputDialog(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  VideoConferencePage(conferenceID: 'Call 2')),
+                        );
                       },
                       child: Container(
                         width: MediaQuery.of(context).size.width / 3,
@@ -132,9 +134,9 @@ class _MeetScreenState extends State<MeetScreen> {
                         child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.add, color: Colors.white),
+                            Icon(Icons.video_call_rounded, color: Colors.white),
                             SizedBox(height: 8),
-                            Text('Create a meet',
+                            Text('Call 2',
                                 style: TextStyle(color: Colors.white)),
                           ],
                         ),
@@ -147,53 +149,6 @@ class _MeetScreenState extends State<MeetScreen> {
           ),
         ),
       ),
-    );
-  }
-}
-
-Future<void> _showCodeInputDialog(BuildContext context) async {
-  String enteredCode = '';
-  await showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text('Enter Code to verify'),
-        content: TextField(
-          obscureText: true,
-          decoration: InputDecoration(hintText: 'Enter code'),
-          onChanged: (value) {
-            enteredCode = value;
-          },
-        ),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-              codeconfirm(enteredCode, context);
-            },
-            child: Text('Submit'),
-          ),
-        ],
-      );
-    },
-  );
-
-  // Check if the entered code is correct
-}
-
-void codeconfirm(String enteredCode, context) {
-  if (enteredCode == '1234') {
-    // Navigate to VolunteerList page
-  } else {
-    // Show error message
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Incorrect code')),
     );
   }
 }
