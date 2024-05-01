@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
 import 'package:disaster_management/screen/MapScreen.dart';
+import 'package:disaster_management/screen/alert_screen.dart';
 import 'package:disaster_management/screen/communication_screen.dart';
 import 'package:disaster_management/screen/staticdata_screen.dart';
 import 'package:disaster_management/screen/volunteer_screen.dart';
@@ -484,7 +485,14 @@ class HomeScreen extends StatelessWidget {
                                     IconButton(
                                       icon: const Icon(Icons.add_alert,
                                           size: 40, color: Colors.white),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                         Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    AppNotificationsScreen()));
+
+                                      },
                                     ),
                                     const Text(
                                       'Alerts',

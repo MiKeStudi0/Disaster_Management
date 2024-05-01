@@ -29,6 +29,8 @@ dependencies:
   flutter_bloc: ^8.1.5
   equatable: ^2.0.5
   firebase_storage: ^11.7.3
+  firebase_messaging: ^14.9.1
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:
