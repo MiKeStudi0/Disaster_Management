@@ -5,7 +5,9 @@ import 'package:disaster_management/volunteer/volunteer_reg.dart';
 import 'package:flutter/material.dart';
 
 class VolunteerScreen extends StatelessWidget {
-  const VolunteerScreen({super.key, });
+  const VolunteerScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

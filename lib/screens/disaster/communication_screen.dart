@@ -143,6 +143,48 @@ class _MeetScreenState extends State<MeetScreen> {
                   ],
                 ),
               ),
+              Positioned(
+                top: 1.2 * kToolbarHeight +
+                    20 +
+                    MediaQuery.of(context).size.width / 3 +
+                    20, // Adjust position based on the size of previous widgets
+                left: 0,
+                right: 0,
+                child: SizedBox(
+                  height: 150, // Adjust height as needed
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      // Horizontal list items...
+                      Container(
+                        margin: const EdgeInsets.all(8),
+                        width: 150,
+                        color: Colors.grey[300],
+                        child: Center(
+                          child: Text('Item 1'),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(8),
+                        width: 150,
+                        color: Colors.grey[300],
+                        child: Center(
+                          child: Text('Item 2'),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(8),
+                        width: 150,
+                        color: Colors.grey[300],
+                        child: Center(
+                          child: Text('Item 1'),
+                        ),
+                      ),
+                      // Add more items as needed...
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
