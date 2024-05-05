@@ -57,7 +57,6 @@
 //   }
 // }
 
-
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -118,8 +117,8 @@ class _AlertBoxState extends State<AlertBox> {
           duration: const Duration(milliseconds: 500),
           child: _notifications.isNotEmpty
               ? Padding(
-                padding: const EdgeInsets.all(8),
-                child: Text(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
                     _notifications[_currentIndex],
                     key: ValueKey<String>(_notifications[_currentIndex]),
                     style: const TextStyle(
@@ -127,12 +126,10 @@ class _AlertBoxState extends State<AlertBox> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-              )
+                )
               : const SizedBox(), // Return empty SizedBox if there are no notifications
         ),
       ),
     );
   }
 }
-
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import 'dart:math' as math;
@@ -13,6 +14,7 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   late GoogleMapController _controller;
   static const LatLng _center = LatLng(11.43838308285179, 75.76443871028839);
+
   LatLng? _currentPosition;
   late double _heading = 0;
   final List<LatLng> _polylineCoordinates = [];
@@ -21,6 +23,7 @@ class _MapPageState extends State<MapPage> {
   void initState() {
     super.initState();
     _getHeading();
+    updateCurrentPosition();
   }
 
   Future<void> _getHeading() async {
@@ -49,7 +52,7 @@ class _MapPageState extends State<MapPage> {
         onMapCreated: (GoogleMapController controller) {
           _controller = controller;
         },
-        onTap: _updateCurrentPosition,
+        // onTap: _updateCurrentPosition,
         markers: {
           if (_currentPosition != null)
             Marker(
@@ -78,30 +81,58 @@ class _MapPageState extends State<MapPage> {
             ),
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          if (_currentPosition != null) {
-            _controller.animateCamera(
-              CameraUpdate.newCameraPosition(
-                CameraPosition(
-                  target: _center,
-                  zoom: 15,
-                  bearing: _calculateBearing(),
-                ),
-              ),
-            );
-            _updatePolyline();
-          }
-        },
-        child: const Icon(Icons.directions),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     if (_currentPosition != null) {
+      //       _controller.animateCamera(
+      //         CameraUpdate.newCameraPosition(
+      //           CameraPosition(
+      //             target: _center,
+      //             zoom: 15,
+      //             bearing: _calculateBearing(),
+      //           ),
+      //         ),
+      //       );
+      //       _updatePolyline();
+      //     }
+      //   },
+      //   child: const Icon(Icons.directions),
+      // ),
     );
   }
 
-  void _updateCurrentPosition(LatLng position) {
+  // void _updateCurrentPosition(LatLng position) {
+  //   setState(() {
+  //     _currentPosition = position;
+  //   });
+  // }
+
+  void updateCurrentPosition() async {
+    // Call getyourlocation() and wait for the result
+    LatLng currentPosition = await getyourlocation();
+
+    // Update _currentPosition with the obtained position
     setState(() {
-      _currentPosition = position;
+      _currentPosition = currentPosition;
     });
+    if (_currentPosition != null) {
+      _controller.animateCamera(
+        CameraUpdate.newCameraPosition(
+          CameraPosition(
+            target: _center,
+            zoom: 15,
+            bearing: _calculateBearing(),
+          ),
+        ),
+      );
+      _updatePolyline();
+    }
+  }
+
+  Future<LatLng> getyourlocation() async {
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    return LatLng(position.latitude, position.longitude);
   }
 
   void _updatePolyline() {
