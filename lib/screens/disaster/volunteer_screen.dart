@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:disaster_management/screens/disaster/helpline_screen.dart';
 import 'package:disaster_management/volunteer/volunteer_list.dart';
 import 'package:disaster_management/volunteer/volunteer_reg.dart';
 import 'package:flutter/material.dart';
@@ -114,7 +116,10 @@ class VolunteerScreen extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        _showCodeInputDialog(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HelplineScreen()));
                       },
                       child: Container(
                         width: MediaQuery.of(context).size.width / 3,
@@ -131,15 +136,70 @@ class VolunteerScreen extends StatelessWidget {
                         child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.note, color: Colors.white),
+                            Icon(Icons.call, color: Colors.white),
                             SizedBox(height: 8),
-                            Text('Volunteer List',
+                            Text('Helplines',
                                 style: TextStyle(color: Colors.white)),
                           ],
                         ),
                       ),
                     ),
                   ],
+                ),
+              ),
+              Positioned(
+                top: 1.2 * kToolbarHeight +
+                    20 +
+                    MediaQuery.of(context).size.width / 3 +
+                    20, // Adjust position based on the size of previous widgets
+                left: 0,
+                right: 0,
+                child: SizedBox(
+                  height: 150, // Adjust height as needed
+                  child: StreamBuilder<QuerySnapshot>(
+                    stream: FirebaseFirestore.instance
+                        .collection('volunteer')
+                        .snapshots(),
+                    builder: (BuildContext context, AsyncSnapshot snapshot) {
+                      if (snapshot.hasError) {
+                        return Center(child: Text('Error: ${snapshot.error}'));
+                      }
+
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator());
+                      }
+
+                      if (snapshot.hasData) {
+                        QuerySnapshot querySnapshot = snapshot.data;
+                        List<QueryDocumentSnapshot> documents =
+                            querySnapshot.docs;
+
+                        List<Map> items = documents
+                            .map((e) => {
+                                  'id': e.id,
+                                  'name': e['name'],
+                                  'number': e['number'],
+                                  'district': e['district'],
+                                })
+                            .toList();
+
+                        items.sort((item1, item2) =>
+                            item1['district'].compareTo(item2['district']));
+
+                        return ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: items.length,
+                          shrinkWrap: true,
+                          itemBuilder: (context, i) {
+                            Map disaster = items[i];
+                            return Volunteer(disaster['id']);
+                          },
+                        );
+                      }
+
+                      return const Center(child: CircularProgressIndicator());
+                    },
+                  ),
                 ),
               ),
             ],

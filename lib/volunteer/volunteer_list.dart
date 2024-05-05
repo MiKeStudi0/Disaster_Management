@@ -58,7 +58,7 @@ class VolunteerList extends StatelessWidget {
 
                   return Container(
                     child: ListView.builder(
-                      scrollDirection: Axis.vertical,
+                      scrollDirection: Axis.horizontal,
                       itemCount: items.length,
                       shrinkWrap: true,
                       itemBuilder: (context, i) {
@@ -108,11 +108,9 @@ class Volunteer extends StatelessWidget {
             data = documentSnapshot.data() as Map;
 
             return Container(
-                width: MediaQuery.of(context).size.width,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 3.0, vertical: 8.0),
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 2.0, vertical: 3.0),
+                width: MediaQuery.of(context).size.width / 2.5,
+                // padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                // margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                 child: InkWell(
                   child: Card(
                       elevation: 5.0,
@@ -120,11 +118,11 @@ class Volunteer extends StatelessWidget {
                         borderRadius: BorderRadius.circular(4.0),
                       ),
                       child: Container(
-                          width: MediaQuery.of(context).size.width,
+                          width: MediaQuery.of(context).size.width / 2.5,
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10.0, vertical: 10.0),
+                              horizontal: .0, vertical: .0),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Column(
@@ -146,34 +144,62 @@ class Volunteer extends StatelessWidget {
                                   ),
                                   // SizedBox(height: 5.0),
                                   Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 4.0, vertical: 4.0),
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 3.0, vertical: 3.0),
-                                    child: Text('${data['number']}',
-                                        style: const TextStyle(
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.bold,
-                                            color: Color.fromARGB(
-                                                255, 71, 70, 70))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 4.0, vertical: 4.0),
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 3.0, vertical: 3.0),
+                                          child: Text(
+                                            '${data['number']}',
+                                            style: const TextStyle(
+                                              fontSize: 18.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: Color.fromARGB(
+                                                  255, 71, 70, 70),
+                                            ),
+                                          ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            const Icon(
+                                              Icons.location_on,
+                                              color: Color.fromARGB(
+                                                  255, 75, 77, 76),
+                                            ),
+                                            const SizedBox(width: 5.0),
+                                            Text(
+                                              '${data['district']}',
+                                              style: const TextStyle(
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
                               const SizedBox(width: 12.0),
-                              Container(
-                                  child: Row(
-                                children: [
-                                  const Icon(Icons.location_on,
-                                      color: Color.fromARGB(255, 75, 77, 76)),
-                                  const SizedBox(width: 5.0),
-                                  Text('${data['district']}',
-                                      style: const TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.bold,
-                                        // color: Color.fromARGB(153, 23, 1, 1),
-                                      )),
-                                ],
-                              ))
+                              // Container(
+                              //     child: Row(
+                              //   children: [
+                              //     const Icon(Icons.location_on,
+                              //         color: Color.fromARGB(255, 75, 77, 76)),
+                              //     const SizedBox(width: 5.0),
+                              //     Text('${data['district']}',
+                              //         style: const TextStyle(
+                              //           fontSize: 15.0,
+                              //           fontWeight: FontWeight.bold,
+                              //           // color: Color.fromARGB(153, 23, 1, 1),
+                              //         )),
+                              //   ],
+                              // ))
                             ],
                           ))),
                 ));
