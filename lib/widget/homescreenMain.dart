@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
 import 'package:disaster_management/screens/disaster/MapScreen.dart';
 import 'package:disaster_management/screens/disaster/communication_screen.dart';
+import 'package:disaster_management/screens/disaster/helpline_screen.dart';
 import 'package:disaster_management/screens/disaster/page_model.dart';
 import 'package:disaster_management/screens/disaster/staticdata_screen.dart';
 import 'package:disaster_management/screens/homescreens/widget/home_appbar.dart';
@@ -551,8 +552,8 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                     children: [
                                                       IconButton(
                                                         icon: const Icon(
-                                                            Icons.info,
-                                                            size: 40,
+                                                            Icons.chat,
+                                                            size: 30,
                                                             color:
                                                                 Colors.white),
                                                         onPressed: () {
@@ -561,11 +562,11 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                               MaterialPageRoute(
                                                                   builder:
                                                                       (context) =>
-                                                                          DisasterManagementPage()));
+                                                                          const MeetScreen()));
                                                         },
                                                       ),
                                                       const Text(
-                                                        'Awareness',
+                                                        'Communication',
                                                         style: TextStyle(
                                                           color: Colors.white,
                                                           fontWeight:
@@ -582,7 +583,14 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                             size: 30,
                                                             color:
                                                                 Colors.white),
-                                                        onPressed: () {},
+                                                        onPressed: () {
+                                                          Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          HelplineScreen()));
+                                                        },
                                                       ),
                                                       const Text(
                                                         'Helpline',
