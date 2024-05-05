@@ -80,7 +80,7 @@ class ongoingscreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  VideoConferencePage(conferenceID: 'Call 1')),
+                                  const VideoConferencePage(conferenceID: 'Call 1')),
                         );
                       },
                       child: Container(
@@ -116,7 +116,7 @@ class ongoingscreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  VideoConferencePage(conferenceID: 'Call 2')),
+                                  const VideoConferencePage(conferenceID: 'Call 2')),
                         );
                       },
                       child: Container(

@@ -21,13 +21,13 @@ class VideoConferencePage extends StatelessWidget {
           .get(),
       builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
         if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         }
         if (!snapshot.hasData || snapshot.data == null) {
-          return Center(child: Text('User not found'));
+          return const Center(child: Text('User not found'));
         }
 
         // Retrieve username from the document snapshot

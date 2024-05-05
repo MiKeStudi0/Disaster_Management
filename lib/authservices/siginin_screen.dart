@@ -1,13 +1,12 @@
 import 'package:disaster_management/components/log_button.dart';
 import 'package:disaster_management/components/log_textfield.dart';
-import 'package:disaster_management/components/square_box.dart';
 import 'package:disaster_management/screen/page_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
   final Function()? onTap;
-  LoginScreen({
+  const LoginScreen({
     super.key,
     required this.onTap,
   });
@@ -54,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
           title: Center(
             child: Text(
               m,
-              style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+              style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
             ),
           ),
         );

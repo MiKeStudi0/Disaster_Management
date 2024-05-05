@@ -9,7 +9,6 @@ import 'package:disaster_management/screen/volunteer_screen.dart';
 import 'package:disaster_management/weather/data/alerts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
@@ -26,7 +25,7 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.logout,
               color: Colors.white54,
             ),
@@ -323,8 +322,8 @@ class HomeScreen extends StatelessWidget {
                                 color: Colors.grey,
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 20.0),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 20.0),
                               child: AlertBox(),
                             ),
                             const SizedBox(height: 30),
@@ -341,7 +340,7 @@ class HomeScreen extends StatelessWidget {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    MapPage()));
+                                                    const MapPage()));
                                       },
                                     ),
                                     const Text(
@@ -363,7 +362,7 @@ class HomeScreen extends StatelessWidget {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    MeetScreen()));
+                                                    const MeetScreen()));
                                       },
                                     ),
                                     const Text(
@@ -468,7 +467,7 @@ class HomeScreen extends StatelessWidget {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    DisasterManagementPage()));
+                                                     DisasterManagementPage()));
                                       },
                                     ),
                                     const Text(
@@ -490,7 +489,7 @@ class HomeScreen extends StatelessWidget {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    AppNotificationsScreen()));
+                                                    const AppNotificationsScreen()));
 
                                       },
                                     ),

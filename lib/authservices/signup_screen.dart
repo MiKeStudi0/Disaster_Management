@@ -1,13 +1,12 @@
 import 'package:disaster_management/components/log_button.dart';
 import 'package:disaster_management/components/log_textfield.dart';
-import 'package:disaster_management/components/square_box.dart';
 import 'package:disaster_management/screen/page_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
   final Function()? onTap;
-  SignUp({
+  const SignUp({
     super.key,
     required this.onTap,
   });

@@ -9,6 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 
 class RegistrationPage extends StatelessWidget {
+  const RegistrationPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -72,12 +74,12 @@ class RegistrationPage extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
-            title: Text(
+            title: const Text(
               'Enter your Details',
               style: TextStyle(color: Colors.white),
             ),
           ),
-          body: Padding(
+          body: const Padding(
             padding: EdgeInsets.all(20.0),
             child: RegistrationForm(),
           ),
@@ -88,6 +90,8 @@ class RegistrationPage extends StatelessWidget {
 }
 
 class RegistrationForm extends StatefulWidget {
+  const RegistrationForm({super.key});
+
   @override
   _RegistrationFormState createState() => _RegistrationFormState();
 }
@@ -95,11 +99,11 @@ class RegistrationForm extends StatefulWidget {
 class _RegistrationFormState extends State<RegistrationForm> {
   String? _selectedGender;
 
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _ageController = TextEditingController();
-  TextEditingController _addressController = TextEditingController();
-  TextEditingController _genderController = TextEditingController();
-  TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _genderController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -174,7 +178,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
         children: [
           TextFormField(
             controller: _nameController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 labelText: 'Name',
                 labelStyle: TextStyle(color: Colors.greenAccent),
                 hintStyle: TextStyle(color: Colors.white24),
@@ -188,7 +192,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
           ),
           TextFormField(
             controller: _ageController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 labelText: 'Age',
                 labelStyle: TextStyle(color: Colors.greenAccent),
                 hintStyle: TextStyle(color: Colors.white24),
@@ -203,7 +207,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
           ),
           TextFormField(
             controller: _addressController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 labelText: 'Address',
                 labelStyle: TextStyle(color: Colors.greenAccent),
                 hintStyle: TextStyle(color: Colors.white24),
@@ -222,7 +226,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 _selectedGender = newValue;
               });
             },
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Gender',
               labelStyle: TextStyle(color: Colors.greenAccent),
               hintStyle: TextStyle(color: Colors.white24),
@@ -245,7 +249,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
           ),
           TextFormField(
             controller: _phoneNumberController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 labelText: 'Phone Number',
                 labelStyle: TextStyle(color: Colors.greenAccent),
                 hintStyle: TextStyle(color: Colors.white24),
@@ -258,13 +262,13 @@ class _RegistrationFormState extends State<RegistrationForm> {
               return null;
             },
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: _submitForm,
-            child: Text('Submit'),
             style: ButtonStyle(
               backgroundColor: WidgetStateProperty.all<Color>(Colors.blue),
             ),
+            child: const Text('Submit'),
           ),
         ],
       ),

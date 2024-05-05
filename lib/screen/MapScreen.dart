@@ -15,7 +15,7 @@ class _MapPageState extends State<MapPage> {
   static const LatLng _center = LatLng(11.43838308285179, 75.76443871028839);
   LatLng? _currentPosition;
   late double _heading = 0;
-  List<LatLng> _polylineCoordinates = [];
+  final List<LatLng> _polylineCoordinates = [];
 
   @override
   void initState() {
@@ -36,13 +36,13 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Migration map",
           style: TextStyle(color: Colors.black),
         ),
       ),
       body: GoogleMap(
-        initialCameraPosition: CameraPosition(
+        initialCameraPosition: const CameraPosition(
           target: _center,
           zoom: 15,
         ),
@@ -53,10 +53,10 @@ class _MapPageState extends State<MapPage> {
         markers: {
           if (_currentPosition != null)
             Marker(
-              markerId: MarkerId('Current Position'),
+              markerId: const MarkerId('Current Position'),
               position: _currentPosition!,
             ),
-          Marker(
+          const Marker(
             markerId: MarkerId('Rescue Camp'),
             icon: BitmapDescriptor.defaultMarker,
             position: _center,
@@ -72,7 +72,7 @@ class _MapPageState extends State<MapPage> {
         polylines: {
           if (_polylineCoordinates.isNotEmpty)
             Polyline(
-              polylineId: PolylineId('path'),
+              polylineId: const PolylineId('path'),
               color: Colors.blue,
               points: _polylineCoordinates,
             ),
@@ -93,7 +93,7 @@ class _MapPageState extends State<MapPage> {
             _updatePolyline();
           }
         },
-        child: Icon(Icons.directions),
+        child: const Icon(Icons.directions),
       ),
     );
   }

@@ -27,6 +27,8 @@ class DisasterManagementPage extends StatelessWidget {
     ),
   ];
 
+  const DisasterManagementPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -34,14 +36,14 @@ class DisasterManagementPage extends StatelessWidget {
         pagemodel1(context),
         Scaffold(
           appBar: AppBar(
-            title: Text(
+            title: const Text(
               'Static Awareness',
               style: TextStyle(color: Colors.white),
             ),
             backgroundColor: Colors.transparent,
             elevation: 0,
             automaticallyImplyLeading: true,
-            iconTheme: IconThemeData(
+            iconTheme: const IconThemeData(
               color: Colors.white,
             ),
           ),
@@ -87,7 +89,7 @@ class DisasterManagementPage extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 20.0),
                     padding: const EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: const Color.fromARGB(255, 255, 255, 255),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: const Column(
@@ -155,7 +157,7 @@ class DisasterManagementPage extends StatelessWidget {
             padding: const EdgeInsets.only(left: 40.0, right: 8.0, bottom: 8.0),
             child: Text(
               questionAnswer.answer,
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ],

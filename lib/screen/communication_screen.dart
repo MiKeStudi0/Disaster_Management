@@ -84,7 +84,7 @@ class _MeetScreenState extends State<MeetScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ongoingscreen()));
+                                builder: (context) => const ongoingscreen()));
                       },
                       child: Container(
                         width: MediaQuery.of(context).size.width / 3,
@@ -157,10 +157,10 @@ Future<void> _showCodeInputDialog(BuildContext context) async {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Enter Code to verify'),
+        title: const Text('Enter Code to verify'),
         content: TextField(
           obscureText: true,
-          decoration: InputDecoration(hintText: 'Enter code'),
+          decoration: const InputDecoration(hintText: 'Enter code'),
           onChanged: (value) {
             enteredCode = value;
           },
@@ -170,14 +170,14 @@ Future<void> _showCodeInputDialog(BuildContext context) async {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('Cancel'),
+            child: const Text('Cancel'),
           ),
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
               codeconfirm(enteredCode, context);
             },
-            child: Text('Submit'),
+            child: const Text('Submit'),
           ),
         ],
       );
@@ -193,7 +193,7 @@ void codeconfirm(String enteredCode, context) {
   } else {
     // Show error message
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Incorrect code')),
+      const SnackBar(content: Text('Incorrect code')),
     );
   }
 }

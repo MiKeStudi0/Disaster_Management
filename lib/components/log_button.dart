@@ -4,7 +4,7 @@ class LogButton extends StatelessWidget {
   final Function()? onTap;
   final String text;
 
-  LogButton({
+  const LogButton({
     super.key,
     required this.onTap,
     required this.text,

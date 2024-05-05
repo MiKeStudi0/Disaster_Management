@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class VolunteerReg extends StatefulWidget {
-  VolunteerReg({Key? key}) : super(key: key);
+  const VolunteerReg({Key? key}) : super(key: key);
 
   @override
   State<VolunteerReg> createState() => _VolunteerRegState();

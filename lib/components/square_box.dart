@@ -14,7 +14,7 @@ class SquareBox extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(color: const Color.fromARGB(255, 0, 0, 0)),
           borderRadius: BorderRadius.circular(8),
-          color: Color.fromARGB(255, 0, 0, 0),
+          color: const Color.fromARGB(255, 0, 0, 0),
         ),
         child: Image.asset(
           imagepath,
