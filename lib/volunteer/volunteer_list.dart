@@ -1,5 +1,5 @@
 import 'dart:core';
-import 'package:disaster_management/screen/page_model.dart';
+import 'package:disaster_management/screens/disaster/page_model.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

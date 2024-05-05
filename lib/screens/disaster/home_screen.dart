@@ -1,16 +1,17 @@
 import 'dart:ui';
 
 import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
-import 'package:disaster_management/screen/MapScreen.dart';
-import 'package:disaster_management/screen/alert_screen.dart';
-import 'package:disaster_management/screen/communication_screen.dart';
-import 'package:disaster_management/screen/staticdata_screen.dart';
-import 'package:disaster_management/screen/volunteer_screen.dart';
+import 'package:disaster_management/screens/disaster/MapScreen.dart';
+import 'package:disaster_management/screens/alert_screen.dart';
+import 'package:disaster_management/screens/disaster/communication_screen.dart';
+import 'package:disaster_management/screens/disaster/staticdata_screen.dart';
+import 'package:disaster_management/screens/disaster/volunteer_screen.dart';
 import 'package:disaster_management/weather/data/alerts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+final navigatorKey = GlobalKey<NavigatorState>();
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

@@ -1,5 +1,4 @@
-import 'package:disaster_management/screens/homescreens/homescreen.dart';
-import 'package:disaster_management/screens/request_list_screen/request_list.dart';
+import 'package:disaster_management/screens/disaster/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:disaster_management/bindings/general_bindings.dart';
@@ -22,7 +21,9 @@ class App extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         // initialBinding: GeneralBindings(),
         routes: {
-          'handle_notification': (context) => const StoreScreen(),
+          'handle_notification': (context) {
+            return const HomeScreen();
+          },
         },
         home: const Scaffold(
           backgroundColor: TColors.primary,

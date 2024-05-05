@@ -1,6 +1,6 @@
 import 'package:disaster_management/components/log_button.dart';
 import 'package:disaster_management/components/log_textfield.dart';
-import 'package:disaster_management/screen/page_model.dart';
+import 'package:disaster_management/screens/disaster/page_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

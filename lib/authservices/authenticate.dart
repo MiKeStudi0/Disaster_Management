@@ -1,4 +1,4 @@
-import 'package:disaster_management/screen/home_screen.dart';
+import 'package:disaster_management/screens/disaster/home_screen.dart';
 import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

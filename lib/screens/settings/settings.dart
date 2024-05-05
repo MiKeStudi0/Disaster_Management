@@ -1,4 +1,3 @@
-import 'package:disaster_management/screens/receiver_screen/sender_view_accept.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -74,7 +73,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: "Recent Donations",
                     subtitle: 'View your recent donations',
-                    onTap: () => Get.to(() => const SenderViewAccept())),
+                    onTap: () => Get.to(() => const ())),
                 TSettingsMenuTile(
                     icon: Iconsax.bank,
                     title: "Experties",

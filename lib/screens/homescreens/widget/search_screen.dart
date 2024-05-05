@@ -25,9 +25,7 @@ class SearchScreen extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
     final controller = Get.put(SearchControll());
 
-    // Store the original unfiltered data
-    final List<Map<String, dynamic>> originalData = List.from(controller.productDataList);
-
+  
     void searchProduct(String query) {
       if (query.isEmpty) {
         // If the search query is empty, reset the product list to its original state
