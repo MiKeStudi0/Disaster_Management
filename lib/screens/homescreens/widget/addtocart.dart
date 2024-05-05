@@ -10,7 +10,6 @@ import 'package:disaster_management/screens/homescreens/widget/checkout_pro.dart
 import 'package:disaster_management/screens/homescreens/widget/homewidget.dart';
 import 'package:get/get.dart';
 
-import 'package:disaster_management/screens/test/widgets/product_image_slider.dart';
 import 'package:disaster_management/screens/request_list_screen/widget/brandshowcase.dart';
 import 'package:disaster_management/utils/constants/colors.dart';
 import 'package:disaster_management/utils/constants/enums.dart';
@@ -53,9 +52,7 @@ final dark = THelperFunctions.isDarkMode(context);
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TImageProductSlider(
-              imageUrl: image,
-            ),
+         
             Padding(
               padding: const EdgeInsets.only(
                   right: TSizes.defaultSpace,

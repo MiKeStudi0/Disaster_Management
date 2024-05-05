@@ -7,7 +7,6 @@ import 'package:disaster_management/common/shapes/t_circular_icon.dart';
 import 'package:disaster_management/common/style/product_price.dart';
 import 'package:disaster_management/common/style/product_title_text.dart';
 import 'package:disaster_management/screens/homescreens/widget/homewidget.dart';
-import 'package:disaster_management/screens/test/product_details.dart';
 import 'package:disaster_management/utils/constants/colors.dart';
 import 'package:disaster_management/utils/constants/enums.dart';
 import 'package:disaster_management/utils/constants/sizes.dart';
@@ -25,7 +24,7 @@ class TProductCartVertical extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: () => Get.to(() => const ProductDetails()),
+      onTap: () => Get.to(() => const ()),
       child: Obx(() {
         if (controller.isLoading.value) {
           // Return a loading indicator if data is still loading

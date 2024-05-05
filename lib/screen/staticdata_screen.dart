@@ -27,7 +27,7 @@ class DisasterManagementPage extends StatelessWidget {
     ),
   ];
 
-  const DisasterManagementPage({super.key});
+   DisasterManagementPage({super.key});
 
   @override
   Widget build(BuildContext context) {
