@@ -44,7 +44,7 @@
 //                 ],
 //               ),
 //               child: SvgPicture.network(
-//                 'assets/vectors/ellipse_1_x2.svg',
+//                 'Assets2/vectors/ellipse_1_x2.svg',
 //               ),
 //             ),
 //           ),
@@ -161,7 +161,7 @@
 //                                   width: 14.4,
 //                                   height: 9,
 //                                   child: SvgPicture.network(
-//                                     'assets/vectors/vector_131_x2.svg',
+//                                     'Assets2/vectors/vector_131_x2.svg',
 //                                   ),
 //                                 ),
 //                               ),
@@ -195,7 +195,7 @@
 //                 width: 13.1,
 //                 height: 23.3,
 //                 child: SvgPicture.network(
-//                   'assets/vectors/vector_20_x2.svg',
+//                   'Assets2/vectors/vector_20_x2.svg',
 //                 ),
 //               ),
 //             ),
@@ -220,7 +220,7 @@
 //                 width: 13.1,
 //                 height: 23.3,
 //                 child: SvgPicture.network(
-//                   'assets/vectors/vector_49_x2.svg',
+//                   'Assets2/vectors/vector_49_x2.svg',
 //                 ),
 //               ),
 //             ),

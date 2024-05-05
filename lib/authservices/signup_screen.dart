@@ -88,7 +88,7 @@ class _SignUpState extends State<SignUp> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          "Assets/Images/l1.png",
+                          "Assets2/Images/l1.png",
                           height: 45,
                           width: 45,
                         ),

@@ -78,7 +78,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/appicon.png"
+  image_path: "Assets2/images/appicon.png"
 
 flutter:
   uses-material-design: true
@@ -86,50 +86,50 @@ flutter:
   #--------------- LOCAL ASSETS ------------------#
   assets:
     - Assets2/Images/
-    - assets/Images/mintemp.png
-    - assets/Images/maxtemp.png
-    - assets/Images/thunderstorm.png
-    - assets/Images/
-    - assets/logos/
-    - assets/icons/brands/
-    - assets/images/content/
-    - assets/images/banners/
-    - assets/images/reviews/
-    - assets/images/products/
-    - assets/icons/categories/
-    - assets/images/animations/
-    - assets/icons/payment_methods/
-    - assets/images/on_boarding_images/
+    - Assets2/Images/mintemp.png
+    - Assets2/Images/maxtemp.png
+    - Assets2/Images/thunderstorm.png
+    - Assets2/Images/
+    - Assets2/logos/
+    - Assets2/icons/brands/
+    - Assets2/Images/content/
+    - Assets2/Images/banners/
+    - Assets2/Images/reviews/
+    - Assets2/Images/products/
+    - Assets2/icons/categories/
+    - Assets2/Images/animations/
+    - Assets2/icons/payment_methods/
+    - Assets2/Images/on_boarding_images/
      
 
   #--------------- LOCAL FONTS ------------------#
   fonts:
     - family: Poppins
       fonts:
-        - asset: assets/fonts/Poppins-Light.ttf
+        - asset: Assets2/fonts/Poppins-Light.ttf
           weight: 300
-        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: Assets2/fonts/Poppins-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Poppins-Italic.ttf
+        - asset: Assets2/fonts/Poppins-Italic.ttf
           style: italic
-        - asset: assets/fonts/Poppins-Medium.ttf
+        - asset: Assets2/fonts/Poppins-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Poppins-MediumItalic.ttf
+        - asset: Assets2/fonts/Poppins-MediumItalic.ttf
           weight: 500
           style: italic
-        - asset: assets/fonts/Poppins-SemiBold.ttf
+        - asset: Assets2/fonts/Poppins-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/Poppins-Bold.ttf
+        - asset: Assets2/fonts/Poppins-Bold.ttf
           weight: 800
 flutter_native_splash:
   color : "#FFFFFF"
   color_dark: "#272727"
-  image: "assets/logos/t-store-splash-logo-black.png"
-  image_dark: "assets/logos/t-store-splash-logo-white.png"
+  image: "Assets2/logos/t-store-splash-logo-black.png"
+  image_dark: "Assets2/logos/t-store-splash-logo-white.png"
 
   android_12:
     color: "#FFFFFF"
     color_dark: "#272727"
-    image: "assets/logos/t-store-splash-logo-black.png"
-    image_dark: "assets/logos/t-store-splash-logo-white.png"
+    image: "Assets2/logos/t-store-splash-logo-black.png"
+    image_dark: "Assets2/logos/t-store-splash-logo-white.png"
   web: false

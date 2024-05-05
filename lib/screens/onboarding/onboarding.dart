@@ -23,15 +23,15 @@ class OnboardingScreen extends StatelessWidget {
             onPageChanged: controller.updatePageIndicator,
             children: const [
               OnBoardingPage(
-                  image: 'assets/images/content/onbord.png',
+                  image: 'Assets2/Images/content/onbord.png',
                   title: TTexts.onBoardingTitle1,
                   subTitle: TTexts.onBoardingSubTitle1),
               OnBoardingPage(
-                  image: 'assets/images/content/onbord2.png',
+                  image: 'Assets2/Images/content/onbord2.png',
                   title: TTexts.onBoardingTitle2,
                   subTitle: TTexts.onBoardingSubTitle2),
               OnBoardingPage(
-                  image:'assets/images/content/onbord3.png',
+                  image: 'Assets2/Images/content/onbord3.png',
                   title: TTexts.onBoardingTitle3,
                   subTitle: TTexts.onBoardingSubTitle3)
             ],
@@ -59,9 +59,8 @@ class OnBoardingNextButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () => OnboardingController.instance.nextPage(),
         style: ElevatedButton.styleFrom(
-          
-          shape: const CircleBorder(),backgroundColor:dark?TColors.primary:TColors.dark
-        ),
+            shape: const CircleBorder(),
+            backgroundColor: dark ? TColors.primary : TColors.dark),
         child: const Icon(Iconsax.arrow_right_3),
       ),
     );
@@ -100,7 +99,6 @@ class onBoardSkip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Positioned(
       top: TDeviceUtils.getAppBarHeight(),
       right: TSizes.defaultSpace,
@@ -129,10 +127,10 @@ class OnBoardingPage extends StatelessWidget {
         children: [
           Image(
             fit: BoxFit.contain,
-          
             width: THelperFunctions.screenWidth() * 1,
             height: THelperFunctions.screenHeight() * 0.6,
-            image: AssetImage(image,
+            image: AssetImage(
+              image,
             ),
           ),
           Text(
