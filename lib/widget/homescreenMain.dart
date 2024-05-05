@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
 import 'package:disaster_management/screens/disaster/MapScreen.dart';
 import 'package:disaster_management/screens/disaster/communication_screen.dart';
+import 'package:disaster_management/screens/disaster/helpline_screen.dart';
 import 'package:disaster_management/screens/disaster/page_model.dart';
 import 'package:disaster_management/screens/homescreens/widget/home_appbar.dart';
 import 'package:disaster_management/screens/homescreens/widget/homewidget.dart';
@@ -500,7 +501,14 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                       IconButton(
                                         icon: const Icon(Icons.call,
                                             size: 30, color: Colors.white),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                           Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                       HelplineScreen()));
+
+                                        },
                                       ),
                                       const Text(
                                         'Helpline',
