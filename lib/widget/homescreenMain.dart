@@ -7,6 +7,7 @@ import 'package:disaster_management/screens/disaster/MapScreen.dart';
 import 'package:disaster_management/screens/disaster/communication_screen.dart';
 import 'package:disaster_management/screens/disaster/helpline_screen.dart';
 import 'package:disaster_management/screens/disaster/page_model.dart';
+import 'package:disaster_management/screens/disaster/shake.dart';
 import 'package:disaster_management/screens/disaster/staticdata_screen.dart';
 import 'package:disaster_management/screens/homescreens/widget/home_appbar.dart';
 import 'package:disaster_management/screens/homescreens/widget/homewidget.dart';
@@ -552,21 +553,20 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                     children: [
                                                       IconButton(
                                                         icon: const Icon(
-                                                            Icons.chat,
+                                                            Icons.crisis_alert,
                                                             size: 30,
-                                                            color:
-                                                                Colors.white),
+                                                            color: Colors.red),
                                                         onPressed: () {
                                                           Navigator.push(
                                                               context,
                                                               MaterialPageRoute(
                                                                   builder:
                                                                       (context) =>
-                                                                          const MeetScreen()));
+                                                                          ShakeLocationPage()));
                                                         },
                                                       ),
                                                       const Text(
-                                                        'Communication',
+                                                        'SOS',
                                                         style: TextStyle(
                                                           color: Colors.white,
                                                           fontWeight:
@@ -575,12 +575,39 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                       ),
                                                     ],
                                                   ),
+                                                  // Column(
+                                                  //   children: [
+                                                  //     IconButton(
+                                                  //       icon: const Icon(
+                                                  //           Icons.call,
+                                                  //           size: 30,
+                                                  //           color:
+                                                  //               Colors.white),
+                                                  //       onPressed: () {
+                                                  //         Navigator.push(
+                                                  //             context,
+                                                  //             MaterialPageRoute(
+                                                  //                 builder:
+                                                  //                     (context) =>
+                                                  //                         HelplineScreen()));
+                                                  //       },
+                                                  //     ),
+                                                  //     const Text(
+                                                  //       'Helpline',
+                                                  //       style: TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontWeight:
+                                                  //             FontWeight.bold,
+                                                  //       ),
+                                                  //     ),
+                                                  //   ],
+                                                  // ),
                                                   Column(
                                                     children: [
                                                       IconButton(
                                                         icon: const Icon(
-                                                            Icons.call,
-                                                            size: 30,
+                                                            Icons.info,
+                                                            size: 40,
                                                             color:
                                                                 Colors.white),
                                                         onPressed: () {
@@ -589,11 +616,11 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                               MaterialPageRoute(
                                                                   builder:
                                                                       (context) =>
-                                                                          HelplineScreen()));
+                                                                          DisasterManagementPage()));
                                                         },
                                                       ),
                                                       const Text(
-                                                        'Helpline',
+                                                        'Awareness',
                                                         style: TextStyle(
                                                           color: Colors.white,
                                                           fontWeight:
