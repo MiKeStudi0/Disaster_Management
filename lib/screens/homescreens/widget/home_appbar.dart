@@ -1,3 +1,4 @@
+import 'package:disaster_management/screens/alert_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -68,7 +69,7 @@ class TCardCounterWidget extends StatelessWidget {
     return Stack(
       children: [
         IconButton(
-            onPressed: () => Get.to(()=> const ()),
+            onPressed: () => Get.to(()=> const AppNotificationsScreen()),
             icon: Icon(
               Iconsax.message_text,
               color: dark?TColors.white: const Color.fromARGB(255, 255, 253, 253),

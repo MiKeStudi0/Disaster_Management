@@ -117,14 +117,17 @@ class _AlertBoxState extends State<AlertBox> {
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 500),
           child: _notifications.isNotEmpty
-              ? Text(
-                  _notifications[_currentIndex],
-                  key: ValueKey<String>(_notifications[_currentIndex]),
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+              ? Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                    _notifications[_currentIndex],
+                    key: ValueKey<String>(_notifications[_currentIndex]),
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                )
+              )
               : const SizedBox(), // Return empty SizedBox if there are no notifications
         ),
       ),
