@@ -61,6 +61,10 @@ dependencies:
   share_plus: ^9.0.0
   flutter_sliding_up_panel: ^2.1.1
   flutter_launcher_icons: ^0.13.1
+  firebase_database: ^10.5.4
+  shake_event: ^0.0.9
+  sensors_plus: ^5.0.1
+  shake: ^1.0.1
 
   # Update Google Play services libraries
 
