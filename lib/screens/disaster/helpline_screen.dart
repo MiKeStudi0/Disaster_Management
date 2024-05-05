@@ -14,6 +14,9 @@ class HelplineScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Helpline Numbers'),
+        automaticallyImplyLeading: true,
+        iconTheme: IconThemeData(color: Colors.white),
+
       ),
       body: ListView.builder(
         itemCount: helplines.length,

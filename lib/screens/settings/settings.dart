@@ -1,3 +1,4 @@
+import 'package:disaster_management/screens/disaster/shake.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -73,7 +74,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: "Recent Donations",
                     subtitle: 'View your recent donations',
-                    onTap: () => Get.to(() => ())),
+                    onTap: () => Get.to(() => ShakeLocationPage())),
                 TSettingsMenuTile(
                     icon: Iconsax.bank,
                     title: "Experties",
