@@ -157,67 +157,35 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
               // height: MediaQuery.of(context).size.height,
               child: Stack(
                 children: [
-                  Column(
-                    children: [
- Align(
-                    alignment: const AlignmentDirectional(3, -0.3),
-                    child: Container(
-                      height: 200,
-                      width: 300,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.deepPurple
-                      ),
-                    ),
-                  ),
-                   Align(
-                    alignment: const AlignmentDirectional(-3, -0.3),
-                    child: Container(
-                      height: 200,
-                      width: 300,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.deepPurple
-                      ),
-                    ),
-                  ),
-                  
-                    ],
-                  ),
-                 
-                 Column(
-                  children: [
-                      Align(
-                    alignment: const AlignmentDirectional(3, -0.3),
-                    child: Container(
-                      height: 200,
-                      width: 300,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.deepPurple
-                      ),
-                    ),
-                  ),
-                    Align(
-                    alignment: const AlignmentDirectional(3, -0.3),
-                    child: Container(
-                      height: 200,
-                      width: 300,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.deepPurple
-                      ),
-                    ),
-                  ),
-                  ],
-                 ),
                   Align(
-                    alignment: const AlignmentDirectional(0, -1.2),
+                    alignment: const AlignmentDirectional(3, -0.2),
                     child: Container(
-                      height: 350,
+                      height: 300,
                       width: 300,
                       decoration: const BoxDecoration(
-                        color: Colors.orange
+                        shape: BoxShape.circle,
+                        color: Color.fromARGB(255, 32, 3, 176),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: const AlignmentDirectional(-3, -0.2),
+                    child: Container(
+                      height: 300,
+                      width: 300,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color.fromARGB(255, 32, 3, 176),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: const AlignmentDirectional(0, -1.0),
+                    child: Container(
+                      height: 300,
+                      width: 300,
+                      decoration: const BoxDecoration(
+                        color: Colors.deepPurple,
                       ),
                     ),
                   ),
