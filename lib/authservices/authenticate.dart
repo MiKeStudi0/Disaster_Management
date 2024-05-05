@@ -1,23 +1,17 @@
 import 'dart:ui';
 
-import 'package:disaster_management/screens/disaster/home_screen.dart';
 import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
+import 'package:disaster_management/screens/disaster/page_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 
-import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
-import 'package:disaster_management/screens/alert_screen.dart';
 import 'package:disaster_management/screens/disaster/MapScreen.dart';
 import 'package:disaster_management/screens/disaster/communication_screen.dart';
-import 'package:disaster_management/screens/disaster/staticdata_screen.dart';
-import 'package:disaster_management/screens/disaster/volunteer_screen.dart';
 import 'package:disaster_management/screens/homescreens/widget/home_appbar.dart';
 import 'package:disaster_management/screens/homescreens/widget/homewidget.dart';
 import 'package:disaster_management/weather/data/alerts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:intl/intl.dart';
 class AuthPage extends StatelessWidget {
@@ -102,8 +96,8 @@ class AuthPage extends StatelessWidget {
                                     ),
                               Row(
                                 children: [
-                                  Icon(Iconsax.location, color: const Color.fromARGB(255, 245, 2, 2)),
-                                  SizedBox(width: 5,),
+                                  const Icon(Iconsax.location, color: Color.fromARGB(255, 245, 2, 2)),
+                                  const SizedBox(width: 5,),
                                   Text(
                                     '${state.weather.areaName}',
                                     style: const TextStyle(
@@ -128,7 +122,7 @@ class AuthPage extends StatelessWidget {
                                           state.weather.weatherConditionCode!),
                                     ),
                                   ),
-                               SizedBox(width: 15, ),
+                               const SizedBox(width: 15, ),
                                   Center(
                                     child: Text(
                                       '${state.weather.temperature!.celsius!.round()} °C',
@@ -541,7 +535,7 @@ class AuthPage extends StatelessWidget {
       ],
     ));
           } else {
-            return const  CircularProgressIndicator();
+            return   const PageModel();
               
           }
         });

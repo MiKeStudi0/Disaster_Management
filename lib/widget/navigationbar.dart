@@ -1,5 +1,3 @@
-import 'package:disaster_management/authservices/authenticate.dart';
-import 'package:disaster_management/screens/alert_screen.dart';
 import 'package:disaster_management/screens/disaster/communication_screen.dart';
 import 'package:disaster_management/screens/disaster/volunteer_screen.dart';
 import 'package:disaster_management/widget/homescreenMain.dart';
@@ -54,7 +52,6 @@ class NavigationbarController extends GetxController {
     const HomeScreenMain(),
     const MeetScreen(),
     const VolunteerScreen(),
-
     const SettingsScreen(),
   ];
 }

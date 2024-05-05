@@ -5,7 +5,6 @@ import 'package:disaster_management/common/appbar.dart';
 import 'package:disaster_management/common/shimmer_effect.dart';
 import 'package:disaster_management/features/personalization/controllers/user_controller.dart';
 import 'package:disaster_management/utils/constants/colors.dart';
-import 'package:disaster_management/utils/constants/text_strings.dart';
 import 'package:disaster_management/utils/helpers/helper_functions.dart';
 
 class THomeAppBar extends StatelessWidget {

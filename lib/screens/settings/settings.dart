@@ -78,7 +78,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.bank,
                     title: "Experties",
                     subtitle: 'Chat with Experts',
-                   onTap: () => Get.to(() =>  IndoxmainpagePage()),),
+                   onTap: () => Get.to(() =>  const IndoxmainpagePage()),),
               
        
                 const SizedBox(height: TSizes.spaceBtwSections),
@@ -90,21 +90,21 @@ class SettingsScreen extends StatelessWidget {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text("Confirm Logout"),
-                            content: Text("Are you sure you want to logout?"),
+                            title: const Text("Confirm Logout"),
+                            content: const Text("Are you sure you want to logout?"),
                             actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.pop(context); // Close the dialog
                                 },
-                                child: Text("Cancel"),
+                                child: const Text("Cancel"),
                               ),
                               TextButton(
                                 onPressed: () {
                                   AuthenticationRepository.instance.logOut();
                                   Navigator.pop(context); // Close the dialog
                                 },
-                                child: Text("Logout"),
+                                child: const Text("Logout"),
                               ),
                             ],
                           );

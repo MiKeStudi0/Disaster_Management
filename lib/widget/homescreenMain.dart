@@ -1,19 +1,11 @@
 import 'package:disaster_management/authservices/authenticate.dart';
-import 'package:disaster_management/screens/eligibility/eligibilityScreen.dart';
-import 'package:disaster_management/utils/constants/colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
-import 'package:disaster_management/screens/homescreens/widget/home_appbar.dart';
-import 'package:disaster_management/screens/homescreens/widget/homewidget.dart';
-import 'package:disaster_management/utils/constants/image_strings.dart';
 
-import 'package:disaster_management/utils/constants/sizes.dart';
 import 'package:disaster_management/utils/helpers/helper_functions.dart';
-import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
