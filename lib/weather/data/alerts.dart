@@ -105,26 +105,28 @@ class _AlertBoxState extends State<AlertBox> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 255, 255, 255),
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 500),
-        child: _notifications.isNotEmpty
-            ? Text(
-                _notifications[_currentIndex],
-                key: ValueKey<String>(_notifications[_currentIndex]),
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-              )
-            : const SizedBox(), // Return empty SizedBox if there are no notifications
+    return Center(
+      child: Container(
+        height: 120,
+        width: MediaQuery.of(context).size.width - 32.0,
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 255, 255, 255),
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 500),
+          child: _notifications.isNotEmpty
+              ? Text(
+                  _notifications[_currentIndex],
+                  key: ValueKey<String>(_notifications[_currentIndex]),
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              : const SizedBox(), // Return empty SizedBox if there are no notifications
+        ),
       ),
     );
   }
