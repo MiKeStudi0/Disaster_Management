@@ -110,7 +110,7 @@ class _AlertBoxState extends State<AlertBox> {
         width: MediaQuery.of(context).size.width - 32.0,
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 255, 255, 255),
+          color: const Color.fromARGB(82, 54, 51, 58),
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: AnimatedSwitcher(
@@ -122,7 +122,7 @@ class _AlertBoxState extends State<AlertBox> {
                     _notifications[_currentIndex],
                     key: ValueKey<String>(_notifications[_currentIndex]),
                     style: const TextStyle(
-                      color: Colors.black,
+                      color: Color.fromARGB(255, 255, 59, 59),
                       fontWeight: FontWeight.bold,
                     ),
                   ),

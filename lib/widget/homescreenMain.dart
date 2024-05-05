@@ -4,8 +4,6 @@ import 'package:disaster_management/authservices/auth2_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
 import 'package:disaster_management/screens/disaster/MapScreen.dart';
-import 'package:disaster_management/screens/disaster/communication_screen.dart';
-import 'package:disaster_management/screens/disaster/helpline_screen.dart';
 import 'package:disaster_management/screens/disaster/page_model.dart';
 import 'package:disaster_management/screens/disaster/shake.dart';
 import 'package:disaster_management/screens/disaster/staticdata_screen.dart';
@@ -222,23 +220,27 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                   ],
                                                 ),
                                               ),
-                                              Row(
-                                                children: [
-                                                  const Icon(Iconsax.location,
-                                                      color: Color.fromARGB(
-                                                          255, 245, 2, 2)),
-                                                  const SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Text(
-                                                    '${state.weather.areaName}',
-                                                    style: const TextStyle(
-                                                      color: Colors.white,
-                                                      fontWeight:
-                                                          FontWeight.w300,
+                                              Padding(
+
+                                                    padding: const EdgeInsets.only(left :15.0, right: 10),
+                                                child: Row(
+                                                  children: [
+                                                    const Icon(Iconsax.location_add,
+                                                        color: Color.fromARGB(
+                                                            255, 245, 2, 2)),
+                                                    const SizedBox(
+                                                      width: 5,
                                                     ),
-                                                  ),
-                                                ],
+                                                    Text(
+                                                      '${state.weather.areaName}',
+                                                      style: const TextStyle(
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                               const SizedBox(
                                                 height: 8,
@@ -307,104 +309,112 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                               const SizedBox(
                                                 height: 15,
                                               ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Row(
-                                                    children: [
-                                                      Image.asset(
-                                                        "Assets2/Images/sunrise.png",
-                                                        scale: 10,
-                                                      ),
-                                                      const SizedBox(
-                                                        width: 5,
-                                                      ),
-                                                      Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          const Text(
-                                                            'Sunrise',
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w300,
+                                              Padding(
+                                                padding: const EdgeInsets.only(left :10.0, right: 10),
+
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Image.asset(
+                                                          "Assets2/Images/sunrise.png",
+                                                          scale: 10,
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            const Text(
+                                                              'Sunrise',
+                                                              style: TextStyle(
+                                                                color:
+                                                                    Colors.white,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w300,
+                                                              ),
                                                             ),
+                                                            const SizedBox(
+                                                              height: 3,
+                                                            ),
+                                                            Text(
+                                                              DateFormat()
+                                                                  .add_jm()
+                                                                  .format(state
+                                                                      .weather
+                                                                      .sunrise!),
+                                                              style:
+                                                                  const TextStyle(
+                                                                color:
+                                                                    Colors.white,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Padding(
+                                                                                                          padding: const EdgeInsets.only(left :15.0, right: 20),
+                                                
+                                                      child: Row(
+                                                        children: [
+                                                          Image.asset(
+                                                            "Assets2/Images/sunset.png",
+                                                            scale: 10,
                                                           ),
                                                           const SizedBox(
-                                                            height: 3,
+                                                            width: 5,
                                                           ),
-                                                          Text(
-                                                            DateFormat()
-                                                                .add_jm()
-                                                                .format(state
-                                                                    .weather
-                                                                    .sunrise!),
-                                                            style:
-                                                                const TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
+                                                          Column(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              const Text(
+                                                                'Sunset',
+                                                                style: TextStyle(
+                                                                  color:
+                                                                      Colors.white,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                ),
+                                                              ),
+                                                              const SizedBox(
+                                                                height: 3,
+                                                              ),
+                                                              Text(
+                                                                DateFormat()
+                                                                    .add_jm()
+                                                                    .format(state
+                                                                        .weather
+                                                                        .sunset!),
+                                                                style:
+                                                                    const TextStyle(
+                                                                  color:
+                                                                      Colors.white,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                              ),
+                                                            ],
                                                           ),
                                                         ],
                                                       ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Image.asset(
-                                                        "Assets2/Images/sunset.png",
-                                                        scale: 10,
-                                                      ),
-                                                      const SizedBox(
-                                                        width: 5,
-                                                      ),
-                                                      Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          const Text(
-                                                            'Sunset',
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w300,
-                                                            ),
-                                                          ),
-                                                          const SizedBox(
-                                                            height: 3,
-                                                          ),
-                                                          Text(
-                                                            DateFormat()
-                                                                .add_jm()
-                                                                .format(state
-                                                                    .weather
-                                                                    .sunset!),
-                                                            style:
-                                                                const TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                               const Padding(
                                                 padding: EdgeInsets.symmetric(
@@ -413,96 +423,102 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                   color: Colors.grey,
                                                 ),
                                               ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Row(
-                                                    children: [
-                                                      Image.asset(
-                                                        "Assets2/Images/maxtemp.png",
-                                                        scale: 10,
-                                                      ),
-                                                      const SizedBox(
-                                                        width: 5,
-                                                      ),
-                                                      Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          const Text(
-                                                            'Max Temp',
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w300,
+                                              Padding(
+                                              padding: const EdgeInsets.only(left :8.0, right: 10),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Image.asset(
+                                                          "Assets2/Images/maxtemp.png",
+                                                          scale: 10,
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            const Text(
+                                                              'Max Temp',
+                                                              style: TextStyle(
+                                                                color:
+                                                                    Colors.white,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w300,
+                                                              ),
                                                             ),
+                                                            const SizedBox(
+                                                              height: 3,
+                                                            ),
+                                                            Text(
+                                                              '${state.weather.tempMax!.celsius!.round()} °C',
+                                                              style:
+                                                                  const TextStyle(
+                                                                color:
+                                                                    Colors.white,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(left :8.0, right: 10),
+                                                      child: Row(
+                                                        children: [
+                                                          Image.asset(
+                                                            "Assets2/Images/mintemp.png",
+                                                            scale: 10,
                                                           ),
                                                           const SizedBox(
-                                                            height: 3,
+                                                            width: 5,
                                                           ),
-                                                          Text(
-                                                            '${state.weather.tempMax!.celsius!.round()} °C',
-                                                            style:
-                                                                const TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
+                                                          Column(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              const Text(
+                                                                'Min Temp',
+                                                                style: TextStyle(
+                                                                  color:
+                                                                      Colors.white,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                ),
+                                                              ),
+                                                              const SizedBox(
+                                                                height: 3,
+                                                              ),
+                                                              Text(
+                                                                '${state.weather.tempMin!.celsius!.round()} °C',
+                                                                style:
+                                                                    const TextStyle(
+                                                                  color:
+                                                                      Colors.white,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                              ),
+                                                            ],
                                                           ),
                                                         ],
                                                       ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Image.asset(
-                                                        "Assets2/Images/mintemp.png",
-                                                        scale: 10,
-                                                      ),
-                                                      const SizedBox(
-                                                        width: 5,
-                                                      ),
-                                                      Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          const Text(
-                                                            'Min Temp',
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w300,
-                                                            ),
-                                                          ),
-                                                          const SizedBox(
-                                                            height: 3,
-                                                          ),
-                                                          Text(
-                                                            '${state.weather.tempMin!.celsius!.round()} °C',
-                                                            style:
-                                                                const TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                               const Padding(
                                                 padding: EdgeInsets.symmetric(
@@ -607,7 +623,7 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                       IconButton(
                                                         icon: const Icon(
                                                             Icons.info,
-                                                            size: 40,
+                                                            size: 30,
                                                             color:
                                                                 Colors.white),
                                                         onPressed: () {

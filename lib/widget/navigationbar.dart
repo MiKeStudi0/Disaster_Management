@@ -34,9 +34,9 @@ class _NavigationbarScreenState extends State<NavigationbarScreen> {
                 : TColors.black.withOpacity(0.1),
             destinations: const [
               NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
-              NavigationDestination(icon: Icon(Iconsax.additem), label: 'Donors'),
+              NavigationDestination(icon: Icon(Iconsax.call), label: 'Rescue'),
               NavigationDestination(
-                  icon: Icon(Iconsax.receipt), label: 'Request'),
+                  icon: Icon(Iconsax.receipt), label: 'Volunteer'),
               NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
             ]),
       ),

@@ -59,7 +59,7 @@ class DisasterManagementPage extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 15.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: Color.fromARGB(255, 255, 255, 255)),
                   ),
                 ),
                 ListView.builder(
@@ -89,7 +89,7 @@ class DisasterManagementPage extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 20.0),
                     padding: const EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
+                      color: const Color.fromARGB(255, 135, 135, 136),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: const Column(
