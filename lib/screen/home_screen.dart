@@ -167,7 +167,7 @@ class HomeScreen extends StatelessWidget {
                                 Row(
                                   children: [
                                     Image.asset(
-                                      "Assets/Images/sunrise.png",
+                                      "Assets2/Images/sunrise.png",
                                       scale: 10,
                                     ),
                                     const SizedBox(
@@ -203,7 +203,7 @@ class HomeScreen extends StatelessWidget {
                                 Row(
                                   children: [
                                     Image.asset(
-                                      "Assets/Images/sunset.png",
+                                      "Assets2/Images/sunset.png",
                                       scale: 10,
                                     ),
                                     const SizedBox(
@@ -250,7 +250,7 @@ class HomeScreen extends StatelessWidget {
                                 Row(
                                   children: [
                                     Image.asset(
-                                      "Assets/Images/maxtemp.png",
+                                      "Assets2/Images/maxtemp.png",
                                       scale: 10,
                                     ),
                                     const SizedBox(
@@ -284,7 +284,7 @@ class HomeScreen extends StatelessWidget {
                                 Row(
                                   children: [
                                     Image.asset(
-                                      "Assets/Images/mintemp.png",
+                                      "Assets2/Images/mintemp.png",
                                       scale: 10,
                                     ),
                                     const SizedBox(
@@ -541,21 +541,21 @@ class HomeScreen extends StatelessWidget {
 Widget getWeatherIcon(int code) {
   switch (code) {
     case >= 200 && < 300:
-      return Image.asset('Assets/Images/thunderstorm.png', scale: 5);
+      return Image.asset('Assets2/Images/thunderstorm.png', scale: 5);
     case >= 300 && < 400:
-      return Image.asset('Assets/Images/lightrain.png', scale: 5);
+      return Image.asset('Assets2/Images/lightrain.png', scale: 5);
     case >= 500 && < 600:
-      return Image.asset('Assets/Images/heavyrain.png', scale: 5);
+      return Image.asset('Assets2/Images/heavyrain.png', scale: 5);
     case >= 600 && < 700:
-      return Image.asset('Assets/Images/snow.png', scale: 5);
+      return Image.asset('Assets2/Images/snow.png', scale: 5);
     case >= 700 && < 800:
-      return Image.asset('Assets/Images/darkclouds.png', scale: 5);
+      return Image.asset('Assets2/Images/darkclouds.png', scale: 5);
     case == 800:
-      return Image.asset('Assets/Images/sunny.png', scale: 5);
+      return Image.asset('Assets2/Images/sunny.png', scale: 5);
     case > 800 && <= 804:
-      return Image.asset('Assets/Images/cloudy.png', scale: 5);
+      return Image.asset('Assets2/Images/cloudy.png', scale: 5);
     default:
-      return Image.asset('Assets/Images/cloudy.png', scale: 5);
+      return Image.asset('Assets2/Images/cloudy.png', scale: 5);
   }
 }
 

@@ -11,7 +11,9 @@ import 'package:geolocator/geolocator.dart';
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
 
-  Widget _navigateToHomeScreen(BuildContext context) {
+
+  @override
+  Widget build(BuildContext context) {
     return FutureBuilder(
         future: _determinePosition(),
         builder: (context, snap) {
@@ -29,40 +31,7 @@ class AuthPage extends StatelessWidget {
             );
           }
         });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return FutureBuilder<DocumentSnapshot>(
-              future: FirebaseFirestore.instance
-                  .collection('userData')
-                  .doc(snapshot.data!.uid)
-                  .get(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Scaffold(
-                    body: Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                  );
-                } else if (!snapshot.hasData || !snapshot.data!.exists) {
-                  return RegistrationPage();
-                } else {
-                  return _navigateToHomeScreen(context);
-                }
-              },
-            );
-          } else {
-            return const SignInOrUp();
-          }
-        },
-      ),
-    );
+      
   }
 }
 

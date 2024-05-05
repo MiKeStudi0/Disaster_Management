@@ -85,6 +85,11 @@ flutter:
 
   #--------------- LOCAL ASSETS ------------------#
   assets:
+    - Assets2/Images/
+    - assets/Images/mintemp.png
+    - assets/Images/maxtemp.png
+    - assets/Images/thunderstorm.png
+    - assets/Images/
     - assets/logos/
     - assets/icons/brands/
     - assets/images/content/
