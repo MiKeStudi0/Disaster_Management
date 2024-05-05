@@ -1,6 +1,7 @@
 import 'package:disaster_management/authservices/authenticate.dart';
 import 'package:disaster_management/screens/alert_screen.dart';
 import 'package:disaster_management/screens/disaster/communication_screen.dart';
+import 'package:disaster_management/screens/disaster/volunteer_screen.dart';
 import 'package:disaster_management/widget/homescreenMain.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,7 +30,7 @@ class _NavigationbarScreenState extends State<NavigationbarScreen> {
             selectedIndex: controller.selectedIndex.value,
             onDestinationSelected: (index) =>
                 controller.selectedIndex.value = index,
-            backgroundColor: dark ? TColors.black : Colors.white,
+            backgroundColor: Colors.transparent,
             indicatorColor: dark
                 ? TColors.white.withOpacity(0.1)
                 : TColors.black.withOpacity(0.1),
@@ -51,8 +52,8 @@ class NavigationbarController extends GetxController {
 
   final screens = [
     const HomeScreenMain(),
-    const AppNotificationsScreen(),
     const MeetScreen(),
+    const VolunteerScreen(),
 
     const SettingsScreen(),
   ];
