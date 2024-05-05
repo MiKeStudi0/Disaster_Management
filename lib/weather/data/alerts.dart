@@ -112,6 +112,8 @@ class _AlertBoxState extends State<AlertBox> {
         decoration: BoxDecoration(
           color: const Color.fromARGB(82, 54, 51, 58),
           borderRadius: BorderRadius.circular(8.0),
+          border:  Border.all(color: const Color.fromARGB(255, 244, 63, 63), width: 0.4),
+          
         ),
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 500),
@@ -122,8 +124,10 @@ class _AlertBoxState extends State<AlertBox> {
                     _notifications[_currentIndex],
                     key: ValueKey<String>(_notifications[_currentIndex]),
                     style: const TextStyle(
-                      color: Color.fromARGB(255, 255, 59, 59),
-                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 244, 63, 63),
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Poppins',                      
+                      
                     ),
                   ),
                 )
