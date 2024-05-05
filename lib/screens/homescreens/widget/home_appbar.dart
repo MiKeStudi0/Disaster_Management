@@ -10,9 +10,10 @@ import 'package:disaster_management/utils/helpers/helper_functions.dart';
 
 class THomeAppBar extends StatelessWidget {
   const THomeAppBar({
+    this.message = '',
     super.key,
   });
-
+final String message;
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(UserController());
@@ -27,7 +28,7 @@ class THomeAppBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            TTexts.homeAppbarTitle,
+          message,
             style: Theme.of(context)
                 .textTheme
                 .labelMedium!

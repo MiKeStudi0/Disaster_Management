@@ -13,12 +13,14 @@ import 'package:disaster_management/utils/helpers/helper_functions.dart';
 class TPrimaryHeaderContainer extends StatelessWidget {
   const TPrimaryHeaderContainer({
     super.key,
-    required this.child,
+    required this.child, this.name ='',
   });
   final Widget child;
+  final String  name;
   @override
   Widget build(BuildContext context) {
     return TCurvedEdgeWidget(
+      name: name,
       child: Container(
         color: TColors.primary,
         padding: const EdgeInsets.all(0),
@@ -47,10 +49,11 @@ class TPrimaryHeaderContainer extends StatelessWidget {
 
 class TCurvedEdgeWidget extends StatelessWidget {
   const TCurvedEdgeWidget({
+    this.name = '',
     super.key,
     this.child,
   });
-
+ final String name;
   final Widget? child;
 
   @override

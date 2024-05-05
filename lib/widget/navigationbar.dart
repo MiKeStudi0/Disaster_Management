@@ -1,4 +1,7 @@
 import 'package:disaster_management/authservices/authenticate.dart';
+import 'package:disaster_management/screens/alert_screen.dart';
+import 'package:disaster_management/screens/disaster/communication_screen.dart';
+import 'package:disaster_management/widget/homescreenMain.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -47,9 +50,9 @@ class NavigationbarController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    const AuthPage(),
-    const AuthPage(),
-    const AuthPage(),
+    const HomeScreenMain(),
+    const AppNotificationsScreen(),
+    const MeetScreen(),
 
     const SettingsScreen(),
   ];

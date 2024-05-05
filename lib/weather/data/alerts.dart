@@ -79,7 +79,7 @@ class _AlertBoxState extends State<AlertBox> {
   void initState() {
     super.initState();
     _initSharedPreferences();
-    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 2), (timer) {
       setState(() {
         _currentIndex = (_currentIndex + 1) % _notifications.length;
       });

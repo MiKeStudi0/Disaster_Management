@@ -1,11 +1,13 @@
 import 'dart:ui';
 
 import 'package:disaster_management/bloc/weather_bloc_bloc.dart';
-import 'package:disaster_management/screens/disaster/MapScreen.dart';
 import 'package:disaster_management/screens/alert_screen.dart';
+import 'package:disaster_management/screens/disaster/MapScreen.dart';
 import 'package:disaster_management/screens/disaster/communication_screen.dart';
 import 'package:disaster_management/screens/disaster/staticdata_screen.dart';
 import 'package:disaster_management/screens/disaster/volunteer_screen.dart';
+import 'package:disaster_management/screens/homescreens/widget/home_appbar.dart';
+import 'package:disaster_management/screens/homescreens/widget/homewidget.dart';
 import 'package:disaster_management/weather/data/alerts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -18,522 +20,516 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.logout,
-              color: Colors.white54,
-            ),
-            onPressed: () => _signOut(context),
-          ),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(40, 1.2 * kToolbarHeight, 40, 20),
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: Stack(
-            children: [
-              Align(
-                alignment: const AlignmentDirectional(3, -0.2),
-                child: Container(
-                  height: 300,
-                  width: 300,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromARGB(255, 32, 3, 176),
+    return  Column(
+      children: [
+     
+             
+        Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: const AlignmentDirectional(3, -0.2),
+                    child: Container(
+                      height: 300,
+                      width: 300,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color.fromARGB(255, 32, 3, 176),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(-3, -0.2),
-                child: Container(
-                  height: 300,
-                  width: 300,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromARGB(255, 32, 3, 176),
+                  Align(
+                    alignment: const AlignmentDirectional(-3, -0.2),
+                    child: Container(
+                      height: 300,
+                      width: 300,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color.fromARGB(255, 32, 3, 176),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(0, -1.0),
-                child: Container(
-                  height: 300,
-                  width: 300,
-                  decoration: const BoxDecoration(
-                    color: Colors.deepPurple,
+                  Align(
+                    alignment: const AlignmentDirectional(0, -1.0),
+                    child: Container(
+                      height: 300,
+                      width: 300,
+                      decoration: const BoxDecoration(
+                        color: Colors.deepPurple,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
-                child: Container(
-                  decoration: const BoxDecoration(color: Colors.transparent),
-                ),
-              ),
-              SingleChildScrollView(
-                child: BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
-                  builder: (context, state) {
-                    if (state is WeatherBlocSuccess) {
-                      return SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '📍 ${state.weather.areaName}',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w300,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              getGreetingMessage() as String,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment
-                                  .end, // Aligning to the right
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                  BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
+                    child: Container(
+                      decoration: const BoxDecoration(color: Colors.transparent),
+                    ),
+                  ),
+                  BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
+                    builder: (context, state) {
+                      if (state is WeatherBlocSuccess) {
+                        return SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          // height: MediaQuery.of(context).size.height,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                                 const  TPrimaryHeaderContainer(
+                            child: Column(
                               children: [
-                                Expanded(
-                                  child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: getWeatherIcon(
-                                        state.weather.weatherConditionCode!),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                Center(
-                                  child: Text(
-                                    '${state.weather.temperature!.celsius!.round()} °C',
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 55,
-                                        fontWeight: FontWeight.w700),
-                                  ),
-                                ),
+                                 THomeAppBar(),
+                              SizedBox(
+                                height: 20,
+                              )
                               ],
                             ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            Center(
-                              child: Text(
-                                state.weather.weatherMain!.toUpperCase(),
+                                    ),
+                              Text(
+                                '📍 ${state.weather.areaName}',
                                 style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 35,
-                                    fontWeight: FontWeight.w900),
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w300,
+                                ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            Center(
-                              child: Text(
-                                DateFormat('EEEE dd •')
-                                    .add_jm()
-                                    .format(state.weather.date!),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                getGreetingMessage() as String,
                                 style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.w200),
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
+                                ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Image.asset(
-                                      "Assets2/Images/sunrise.png",
-                                      scale: 10,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment
+                                    .end, // Aligning to the right
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: getWeatherIcon(
+                                          state.weather.weatherConditionCode!),
                                     ),
-                                    const SizedBox(
-                                      width: 5,
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Center(
+                                    child: Text(
+                                      '${state.weather.temperature!.celsius!.round()} °C',
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 55,
+                                          fontWeight: FontWeight.w700),
                                     ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        const Text(
-                                          'Sunrise',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w300,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          height: 3,
-                                        ),
-                                        Text(
-                                          DateFormat()
-                                              .add_jm()
-                                              .format(state.weather.sunrise!),
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Image.asset(
-                                      "Assets2/Images/sunset.png",
-                                      scale: 10,
-                                    ),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        const Text(
-                                          'Sunset',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w300,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          height: 3,
-                                        ),
-                                        Text(
-                                          DateFormat()
-                                              .add_jm()
-                                              .format(state.weather.sunset!),
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 5.0),
-                              child: Divider(
-                                color: Colors.grey,
+                                  ),
+                                ],
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Image.asset(
-                                      "Assets2/Images/maxtemp.png",
-                                      scale: 10,
-                                    ),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        const Text(
-                                          'Max Temp',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w300,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          height: 3,
-                                        ),
-                                        Text(
-                                          '${state.weather.tempMax!.celsius!.round()} °C',
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                             
+                              Center(
+                                child: Text(
+                                  state.weather.weatherMain!.toUpperCase(),
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 35,
+                                      fontWeight: FontWeight.w900),
                                 ),
-                                Row(
-                                  children: [
-                                    Image.asset(
-                                      "Assets2/Images/mintemp.png",
-                                      scale: 10,
-                                    ),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        const Text(
-                                          'Min Temp',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w300,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          height: 3,
-                                        ),
-                                        Text(
-                                          '${state.weather.tempMin!.celsius!.round()} °C',
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 5.0),
-                              child: Divider(
-                                color: Colors.grey,
                               ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(top: 20.0),
-                              child: AlertBox(),
-                            ),
-                            const SizedBox(height: 30),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Column(
-                                  children: [
-                                    IconButton(
-                                      icon: const Icon(Icons.map,
-                                          size: 40, color: Colors.white),
-                                      onPressed: () {
-                                        Navigator.push(
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Center(
+                                child: Text(
+                                  DateFormat('EEEE dd •')
+                                      .add_jm()
+                                      .format(state.weather.date!),
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w200),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Image.asset(
+                                        "Assets2/Images/sunrise.png",
+                                        scale: 10,
+                                      ),
+                                      const SizedBox(
+                                        width: 5,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Text(
+                                            'Sunrise',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w300,
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 3,
+                                          ),
+                                          Text(
+                                            DateFormat()
+                                                .add_jm()
+                                                .format(state.weather.sunrise!),
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Image.asset(
+                                        "Assets2/Images/sunset.png",
+                                        scale: 10,
+                                      ),
+                                      const SizedBox(
+                                        width: 5,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Text(
+                                            'Sunset',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w300,
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 3,
+                                          ),
+                                          Text(
+                                            DateFormat()
+                                                .add_jm()
+                                                .format(state.weather.sunset!),
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.0),
+                                child: Divider(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Image.asset(
+                                        "Assets2/Images/maxtemp.png",
+                                        scale: 10,
+                                      ),
+                                      const SizedBox(
+                                        width: 5,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Text(
+                                            'Max Temp',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w300,
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 3,
+                                          ),
+                                          Text(
+                                            '${state.weather.tempMax!.celsius!.round()} °C',
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Image.asset(
+                                        "Assets2/Images/mintemp.png",
+                                        scale: 10,
+                                      ),
+                                      const SizedBox(
+                                        width: 5,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Text(
+                                            'Min Temp',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w300,
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 3,
+                                          ),
+                                          Text(
+                                            '${state.weather.tempMin!.celsius!.round()} °C',
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(vertical: 5.0),
+                                child: Divider(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(top: 20.0),
+                                child: AlertBox(),
+                              ),
+                              const SizedBox(height: 30),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Column(
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.map,
+                                            size: 30, color: Colors.white),
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const MapPage()));
+                                        },
+                                      ),
+                                      const Text(
+                                        'Map',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.chat,
+                                            size: 30, color: Colors.white),
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const MeetScreen()));
+                                        },
+                                      ),
+                                      const Text(
+                                        'Communication',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.call,
+                                            size: 30, color: Colors.white),
+                                        onPressed: () {},
+                                      ),
+                                      const Text(
+                                        'Helpline',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 30),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Column(
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.person,
+                                            size: 40, color: Colors.white),
+                                        onPressed: () {
+                                          Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const MapPage()));
-                                      },
-                                    ),
-                                    const Text(
-                                      'Map',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                                                    const VolunteerScreen()),
+                                          );
+                                        },
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    IconButton(
-                                      icon: const Icon(Icons.chat,
-                                          size: 40, color: Colors.white),
-                                      onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const MeetScreen()));
-                                      },
-                                    ),
-                                    const Text(
-                                      'Communication',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                                      const Text(
+                                        'Volunteer',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    IconButton(
-                                      icon: const Icon(Icons.call,
-                                          size: 40, color: Colors.white),
-                                      onPressed: () {},
-                                    ),
-                                    const Text(
-                                      'Helpline',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.handyman,
+                                            size: 40, color: Colors.white),
+                                        onPressed: () {},
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 30),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Column(
-                                  children: [
-                                    IconButton(
-                                      icon: const Icon(Icons.person,
-                                          size: 40, color: Colors.white),
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const VolunteerScreen()),
-                                        );
-                                      },
-                                    ),
-                                    const Text(
-                                      'Volunteer',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                                      const Text(
+                                        'Resource Management',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    IconButton(
-                                      icon: const Icon(Icons.handyman,
-                                          size: 40, color: Colors.white),
-                                      onPressed: () {},
-                                    ),
-                                    const Text(
-                                      'Resource Management',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.call_made,
+                                            size: 40, color: Colors.white),
+                                        onPressed: () {},
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    IconButton(
-                                      icon: const Icon(Icons.call_made,
-                                          size: 40, color: Colors.white),
-                                      onPressed: () {},
-                                    ),
-                                    const Text(
-                                      'Translator',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                                      const Text(
+                                        'Translator',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 30),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Column(
-                                  children: [
-                                    IconButton(
-                                      icon: const Icon(Icons.info,
-                                          size: 40, color: Colors.white),
-                                      onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                     DisasterManagementPage()));
-                                      },
-                                    ),
-                                    const Text(
-                                      'Info',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 30),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Column(
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.info,
+                                            size: 40, color: Colors.white),
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                       DisasterManagementPage()));
+                                        },
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    IconButton(
-                                      icon: const Icon(Icons.add_alert,
-                                          size: 40, color: Colors.white),
-                                      onPressed: () {
-                                         Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const AppNotificationsScreen()));
-
-                                      },
-                                    ),
-                                    const Text(
-                                      'Alerts',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                                      const Text(
+                                        'Info',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    IconButton(
-                                      icon: const Icon(Icons.person,
-                                          size: 40, color: Colors.white),
-                                      onPressed: () {},
-                                    ),
-                                    const Text(
-                                      ' Profile',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.add_alert,
+                                            size: 40, color: Colors.white),
+                                        onPressed: () {
+                                           Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const AppNotificationsScreen()));
+                          
+                                        },
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      );
-                    } else {
-                      return Container();
-                    }
-                  },
-                ),
+                                      const Text(
+                                        'Alerts',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.person,
+                                            size: 40, color: Colors.white),
+                                        onPressed: () {},
+                                      ),
+                                      const Text(
+                                        ' Profile',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                      } else {
+                        return Container();
+                      }
+                    },
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
-      ),
+            )),
+      ],
     );
   }
 }

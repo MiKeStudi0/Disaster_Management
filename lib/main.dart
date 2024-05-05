@@ -8,8 +8,7 @@ import 'package:disaster_management/widget/app.dart';
 import 'package:disaster_management/firebase_options.dart';
 
 Future<void> main() async {
-  final WidgetsBinding widgetsBinding =
-      WidgetsFlutterBinding.ensureInitialized();
+  final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
 
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);

@@ -73,12 +73,12 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: "Recent Donations",
                     subtitle: 'View your recent donations',
-                    onTap: () => Get.to(() => const ())),
+                    onTap: () => Get.to(() => ())),
                 TSettingsMenuTile(
                     icon: Iconsax.bank,
                     title: "Experties",
                     subtitle: 'Chat with Experts',
-                   onTap: () => Get.to(() =>  const IndoxmainpagePage()),),
+                   onTap: () => Get.to(() =>  IndoxmainpagePage()),),
               
        
                 const SizedBox(height: TSizes.spaceBtwSections),
@@ -90,21 +90,21 @@ class SettingsScreen extends StatelessWidget {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: const Text("Confirm Logout"),
-                            content: const Text("Are you sure you want to logout?"),
+                            title: Text("Confirm Logout"),
+                            content: Text("Are you sure you want to logout?"),
                             actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.pop(context); // Close the dialog
                                 },
-                                child: const Text("Cancel"),
+                                child: Text("Cancel"),
                               ),
                               TextButton(
                                 onPressed: () {
                                   AuthenticationRepository.instance.logOut();
                                   Navigator.pop(context); // Close the dialog
                                 },
-                                child: const Text("Logout"),
+                                child: Text("Logout"),
                               ),
                             ],
                           );
