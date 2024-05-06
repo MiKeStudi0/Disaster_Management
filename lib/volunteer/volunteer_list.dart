@@ -108,17 +108,18 @@ class Volunteer extends StatelessWidget {
             data = documentSnapshot.data() as Map;
 
             return Container(
-                width: MediaQuery.of(context).size.width / 2.5,
+                width: 400,
                 // padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                 // margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                 child: InkWell(
                   child: Card(
                       elevation: 5.0,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4.0),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                       child: Container(
                           width: MediaQuery.of(context).size.width / 2.5,
+                          height: 100,
                           padding: const EdgeInsets.symmetric(
                               horizontal: .0, vertical: .0),
                           child: Row(
@@ -130,7 +131,14 @@ class Volunteer extends StatelessWidget {
                                     MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                              Icons.person,
+                                              color: Color.fromARGB(
+                                                  255, 75, 77, 76),
+                                            ),
+                                            Container(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 4.0, vertical: 4.0),
                                     margin: const EdgeInsets.symmetric(
@@ -142,13 +150,7 @@ class Volunteer extends StatelessWidget {
                                             color: Color.fromARGB(
                                                 255, 195, 17, 4))),
                                   ),
-                                  // SizedBox(height: 5.0),
                                   Container(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 4.0, vertical: 4.0),
                                           margin: const EdgeInsets.symmetric(
@@ -163,6 +165,16 @@ class Volunteer extends StatelessWidget {
                                             ),
                                           ),
                                         ),
+                                    ],
+                                  ),
+                            
+                                  // SizedBox(height: 5.0),
+                                  Container(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        
                                         Row(
                                           children: [
                                             const Icon(
@@ -170,9 +182,22 @@ class Volunteer extends StatelessWidget {
                                               color: Color.fromARGB(
                                                   255, 75, 77, 76),
                                             ),
-                                            const SizedBox(width: 5.0),
+                                            const SizedBox(width: 10.0),
                                             Text(
-                                              '${data['district']}',
+                                              '${data['district']}  ',
+                                              style: const TextStyle(
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),                                              const SizedBox(width: 5.0),
+
+                                            const Icon(
+                                              Icons.track_changes_outlined,
+                                              color: Color.fromARGB(
+                                                  255, 75, 77, 76),
+                                            ),
+                                            Text(
+                                              '   ${data['address']}',
                                               style: const TextStyle(
                                                 fontSize: 15.0,
                                                 fontWeight: FontWeight.bold,

@@ -154,49 +154,74 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                               // height: MediaQuery.of(context).size.height,
                               child: Stack(
                                 children: [
-                                  Align(
-                                    alignment:
-                                        const AlignmentDirectional(3, -0.2),
-                                    child: Container(
-                                      height: 300,
-                                      width: 300,
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Color.fromARGB(255, 32, 3, 176),
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment:
-                                        const AlignmentDirectional(-3, -0.2),
-                                    child: Container(
-                                      height: 300,
-                                      width: 300,
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Color.fromARGB(255, 32, 3, 176),
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment:
-                                        const AlignmentDirectional(0, -1.0),
-                                    child: Container(
-                                      height: 300,
-                                      width: 300,
-                                      decoration: const BoxDecoration(
-                                        color: Colors.deepPurple,
-                                      ),
-                                    ),
-                                  ),
-                                  BackdropFilter(
-                                    filter: ImageFilter.blur(
-                                        sigmaX: 100.0, sigmaY: 100.0),
-                                    child: Container(
-                                      decoration: const BoxDecoration(
-                                          color: Colors.transparent),
-                                    ),
-                                  ),
+                                   Align(
+                alignment: const AlignmentDirectional(2, -0.1),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 72, 58, 147),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(-3, -0.2),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 47, 18, 189),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(0, -1.0),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 114, 63, 197),
+                  ),
+                ),
+              ),
+              Column(
+                children: [
+                     Align(
+                alignment: const AlignmentDirectional(2, -0.1),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 72, 52, 171),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 1),
+                child: Align(
+                  alignment: const AlignmentDirectional(-3, -0.2),
+                  child: Container(
+                    height: 300,
+                    width: 300,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color.fromARGB(255, 104, 80, 225),
+                    ),
+                  ),
+                ),
+              ),
+              
+                ],
+              ),
+              BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
+                child: Container(
+                  decoration: const BoxDecoration(color: Colors.transparent),
+                ),
+              ),
                                   BlocBuilder<WeatherBlocBloc,
                                       WeatherBlocState>(
                                     builder: (context, state) {

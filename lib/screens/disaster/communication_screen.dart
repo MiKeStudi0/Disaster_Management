@@ -24,7 +24,7 @@ class _MeetScreenState extends State<MeetScreen> {
           color: Colors.white,
         ),
         title: const Text(
-          'Meet Screen',
+          'Communication Screen',
           style: TextStyle(color: Colors.white), // Set title color to white
         ),
       ),
@@ -34,14 +34,14 @@ class _MeetScreenState extends State<MeetScreen> {
           height: MediaQuery.of(context).size.height,
           child: Stack(
             children: [
-              Align(
-                alignment: const AlignmentDirectional(3, -0.2),
+               Align(
+                alignment: const AlignmentDirectional(2, -0.1),
                 child: Container(
                   height: 300,
                   width: 300,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color.fromARGB(255, 32, 3, 176),
+                    color: Color.fromARGB(255, 72, 58, 147),
                   ),
                 ),
               ),
@@ -52,7 +52,7 @@ class _MeetScreenState extends State<MeetScreen> {
                   width: 300,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color.fromARGB(255, 32, 3, 176),
+                    color: Color.fromARGB(255, 47, 18, 189),
                   ),
                 ),
               ),
@@ -62,9 +62,45 @@ class _MeetScreenState extends State<MeetScreen> {
                   height: 300,
                   width: 300,
                   decoration: const BoxDecoration(
-                    color: Colors.deepPurple,
+                    color: Color.fromARGB(255, 114, 63, 197),
                   ),
                 ),
+              ),
+              Column(
+                children: [
+                     Align(
+                alignment: const AlignmentDirectional(2, -0.1),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 72, 64, 111),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(-3, -0.2),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 104, 91, 171),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(0, -1.0),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 94, 41, 177),
+                  ),
+                ),
+              ),
+                ],
               ),
               BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
@@ -87,10 +123,20 @@ class _MeetScreenState extends State<MeetScreen> {
                                 builder: (context) => const ongoingscreen()));
                       },
                       child: Container(
+                        
                         width: MediaQuery.of(context).size.width / 3,
                         height:
                             MediaQuery.of(context).size.width / 3, // Square box
                         decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset:
+                                  const Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
                           color:
                               Colors.blue.withOpacity(0.2), // Transparent blue
                           border: Border.all(
@@ -121,7 +167,17 @@ class _MeetScreenState extends State<MeetScreen> {
                         width: MediaQuery.of(context).size.width / 3,
                         height: MediaQuery.of(context).size.width / 3,
                         decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 2,
+                              blurRadius: 1,
+                              offset:
+                                  const Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
                           color:
+
                               Colors.red.withOpacity(0.2), // Transparent blue
                           border: Border.all(
                               color: const Color.fromARGB(26, 90, 89, 89),
@@ -145,42 +201,331 @@ class _MeetScreenState extends State<MeetScreen> {
               ),
               Positioned(
                 top: 1.2 * kToolbarHeight +
-                    20 +
-                    MediaQuery.of(context).size.width / 3 +
+                    
+                    MediaQuery.of(context).size.width / 3.9 +
                     20, // Adjust position based on the size of previous widgets
                 left: 0,
                 right: 0,
                 child: SizedBox(
-                  height: 150, // Adjust height as needed
+                  height: 450, // Adjust height as needed
                   child: ListView(
-                    scrollDirection: Axis.horizontal,
+                    scrollDirection: Axis.vertical,
                     children: [
                       // Horizontal list items...
-                      Container(
-                        margin: const EdgeInsets.all(8),
-                        width: 150,
-                        color: Colors.grey[300],
-                        child: Center(
-                          child: Text('Item 1'),
-                        ),
+                     InkWell(
+                  child: Card(
+                      elevation: 5.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      Container(
-                        margin: const EdgeInsets.all(8),
-                        width: 150,
-                        color: Colors.grey[300],
-                        child: Center(
-                          child: Text('Item 2'),
-                        ),
+                      child: Container(
+                          width: MediaQuery.of(context).size.width / 2.5,
+                          height: 100,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: .0, vertical: .0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                              Icons.call,
+                                              color: Color.fromARGB(
+                                                  255, 75, 77, 76),
+                                            ),
+                                            Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 4.0, vertical: 4.0),
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 3.0, vertical: 3.0),
+                                    child: const Text('Rescue Team S1',
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Color.fromARGB(
+                                                255, 195, 17, 4))),
+                                  ),
+                                  
+                                    ],
+                                  ),
+                            
+                                  // SizedBox(height: 5.0),
+                                  Container(
+                                    child: const Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.location_on,
+                                              color: Color.fromARGB(
+                                                  255, 75, 77, 76),
+                                            ),
+                                            SizedBox(width: 10.0),
+                                            Text(
+                                              'Kozhikode  ',
+                                              style: TextStyle(
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),                                              SizedBox(width: 5.0),
+
+                                            Icon(
+                                              Icons.track_changes_outlined,
+                                              color: Color.fromARGB(
+                                                  255, 75, 77, 76),
+                                            ),
+                                            Text(
+                                              '  Koyilandy',
+                                              style: TextStyle(
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(width: 12.0),
+                              // Container(
+                              //     child: Row(
+                              //   children: [
+                              //     const Icon(Icons.location_on,
+                              //         color: Color.fromARGB(255, 75, 77, 76)),
+                              //     const SizedBox(width: 5.0),
+                              //     Text('${data['district']}',
+                              //         style: const TextStyle(
+                              //           fontSize: 15.0,
+                              //           fontWeight: FontWeight.bold,
+                              //           // color: Color.fromARGB(153, 23, 1, 1),
+                              //         )),
+                              //   ],
+                              // ))
+                            ],
+                          ))),
+                ),
+                const SizedBox(
+                                                height: 8,
+                                              ),
+                   InkWell(
+                  child: Card(
+                      elevation: 5.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      Container(
-                        margin: const EdgeInsets.all(8),
-                        width: 150,
-                        color: Colors.grey[300],
-                        child: Center(
-                          child: Text('Item 1'),
-                        ),
+                      child: Container(
+                          width: MediaQuery.of(context).size.width / 2.5,
+                          height: 100,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: .0, vertical: .0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                              Icons.call,
+                                              color: Color.fromARGB(
+                                                  255, 75, 77, 76),
+                                            ),
+                                            Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 4.0, vertical: 4.0),
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 3.0, vertical: 3.0),
+                                    child: const Text('Rescue Team S2',
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Color.fromARGB(
+                                                255, 195, 17, 4))),
+                                  ),
+                                 
+                                    ],
+                                  ),
+                            
+                                  // SizedBox(height: 5.0),
+                                  Container(
+                                    child: const Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.location_on,
+                                              color: Color.fromARGB(
+                                                  255, 75, 77, 76),
+                                            ),
+                                            SizedBox(width: 10.0),
+                                            Text(
+                                              'Kozhikode  ',
+                                              style: TextStyle(
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),                                              SizedBox(width: 5.0),
+
+                                            Icon(
+                                              Icons.track_changes_outlined,
+                                              color: Color.fromARGB(
+                                                  255, 75, 77, 76),
+                                            ),
+                                            Text(
+                                              ' Ulliyeri',
+                                              style: TextStyle(
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(width: 12.0),
+                              // Container(
+                              //     child: Row(
+                              //   children: [
+                              //     const Icon(Icons.location_on,
+                              //         color: Color.fromARGB(255, 75, 77, 76)),
+                              //     const SizedBox(width: 5.0),
+                              //     Text('${data['district']}',
+                              //         style: const TextStyle(
+                              //           fontSize: 15.0,
+                              //           fontWeight: FontWeight.bold,
+                              //           // color: Color.fromARGB(153, 23, 1, 1),
+                              //         )),
+                              //   ],
+                              // ))
+                            ],
+                          ))),
+                ),const SizedBox(
+                                                height: 8,
+                                              ),
+                 InkWell(
+                  child: Card(
+                      elevation: 5.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      // Add more items as needed...
+                      child: Container(
+                          width: MediaQuery.of(context).size.width / 2.5,
+                          height: 100,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: .0, vertical: .0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                              Icons.call,
+                                              color: Color.fromARGB(
+                                                  255, 75, 77, 76),
+                                            ),
+                                            Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 4.0, vertical: 4.0),
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 3.0, vertical: 3.0),
+                                    child: const Text('Rescue Team S3',
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Color.fromARGB(
+                                                255, 195, 17, 4))),
+                                  ),
+                                 
+                                    ],
+                                  ),
+                            
+                                  // SizedBox(height: 5.0),
+                                  Container(
+                                    child: const Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.location_on,
+                                              color: Color.fromARGB(
+                                                  255, 75, 77, 76),
+                                            ),
+                                            SizedBox(width: 10.0),
+                                            Text(
+                                              'Kozhikode  ',
+                                              style: TextStyle(
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),                                              SizedBox(width: 5.0),
+
+                                            Icon(
+                                              Icons.track_changes_outlined,
+                                              color: Color.fromARGB(
+                                                  255, 75, 77, 76),
+                                            ),
+                                            Text(
+                                              ' Balussery',
+                                              style: TextStyle(
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(width: 12.0),
+                              // Container(
+                              //     child: Row(
+                              //   children: [
+                              //     const Icon(Icons.location_on,
+                              //         color: Color.fromARGB(255, 75, 77, 76)),
+                              //     const SizedBox(width: 5.0),
+                              //     Text('${data['district']}',
+                              //         style: const TextStyle(
+                              //           fontSize: 15.0,
+                              //           fontWeight: FontWeight.bold,
+                              //           // color: Color.fromARGB(153, 23, 1, 1),
+                              //         )),
+                              //   ],
+                              // ))
+                            ],
+                          ))),
+                ),
                     ],
                   ),
                 ),

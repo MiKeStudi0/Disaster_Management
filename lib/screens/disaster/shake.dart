@@ -1,4 +1,9 @@
+import 'dart:ui';
+
+import 'package:disaster_management/common/appbar.dart';
+import 'package:disaster_management/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shake/shake.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -84,15 +89,95 @@ class _ShakeLocationPageState extends State<ShakeLocationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Shake Location'),
+      appBar: const TAppBar(
+        title: Text('Shake for SOS'),
+        showbackarrow: true,
+        
+      
       ),
-      body: Center(
-        child: Text(
-          'Shake your phone to send your location to Firebase.',
-          textAlign: TextAlign.center,
-        ),
+      body: Column(
+        children: [
+          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            child: SizedBox(
+                              // height: MediaQuery.of(context).size.height,
+                              child: Stack(
+                                children: [
+                                  Align(
+                                    alignment:
+                                        const AlignmentDirectional(3, -0.2),
+                                    child: Container(
+                                      height: 300,
+                                      width: 300,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color.fromARGB(255, 61, 22, 255),
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment:
+                                        const AlignmentDirectional(-3, -0.2),
+                                    child: Container(
+                                      height: 300,
+                                      width: 300,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color.fromARGB(255, 84, 50, 255),
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment:
+                                        const AlignmentDirectional(0, -1.0),
+                                    child: Container(
+                                      height: 300,
+                                      width: 300,
+                                      decoration: const BoxDecoration(
+                                        color: Colors.deepPurple,
+                                      ),
+                                    ),
+                                  ),
+                                  BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                        sigmaX: 100.0, sigmaY: 100.0),
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                          color: Colors.transparent),
+                                    ),
+                                  ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 150.0),
+                child: Center(
+                  child: Lottie.asset(
+                    'Assets2/Images/animations/sos.json', // path to your Lottie animation file
+                    width: 300,
+                    height: 300,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ],
+          ),
+         const Padding(
+            padding:  EdgeInsets.only(left: 25.0 , right: 20.0 , top: 450.0),
+            child: Center(
+              child: Text(
+                'Shake your Phone to Send Your Location To Emergency Services and Trigger SOS Alert to Reach Rescue Teams⚠️',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+                
+              ),
+            ),
+          ),
+        ],
       ),
-    );
+    ))]));
   }
 }

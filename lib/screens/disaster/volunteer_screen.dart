@@ -1,7 +1,10 @@
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:disaster_management/common/appbar.dart';
+import 'package:disaster_management/common/productcartvertical.dart';
 import 'package:disaster_management/screens/disaster/helpline_screen.dart';
+import 'package:disaster_management/utils/constants/enums.dart';
 import 'package:disaster_management/volunteer/volunteer_list.dart';
 import 'package:disaster_management/volunteer/volunteer_reg.dart';
 import 'package:flutter/material.dart';
@@ -16,17 +19,10 @@ class VolunteerScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        automaticallyImplyLeading: true,
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
-        title: const Text(
-          'Volunteer',
-          style: TextStyle(color: Colors.white), // Set title color to white
-        ),
+      appBar: const TAppBar(
+        title: Text('Volunteer List'),
+        showbackarrow: false,
+      
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(40, 1.2 * kToolbarHeight, 40, 20),
@@ -35,13 +31,13 @@ class VolunteerScreen extends StatelessWidget {
           child: Stack(
             children: [
               Align(
-                alignment: const AlignmentDirectional(3, -0.2),
+                alignment: const AlignmentDirectional(2, -0.1),
                 child: Container(
                   height: 300,
                   width: 300,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color.fromARGB(255, 32, 3, 176),
+                    color: Color.fromARGB(255, 43, 3, 240),
                   ),
                 ),
               ),
@@ -52,7 +48,7 @@ class VolunteerScreen extends StatelessWidget {
                   width: 300,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color.fromARGB(255, 32, 3, 176),
+                    color: Color.fromARGB(255, 96, 66, 247),
                   ),
                 ),
               ),
@@ -62,9 +58,45 @@ class VolunteerScreen extends StatelessWidget {
                   height: 300,
                   width: 300,
                   decoration: const BoxDecoration(
-                    color: Colors.deepPurple,
+                    color: Color.fromARGB(255, 47, 17, 96),
                   ),
                 ),
+              ),
+              Column(
+                children: [
+                     Align(
+                alignment: const AlignmentDirectional(2, -0.1),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 39, 21, 128),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(-3, -0.2),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 55, 32, 173),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(0, -1.0),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 47, 17, 96),
+                  ),
+                ),
+              ),
+                ],
               ),
               BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
@@ -148,14 +180,19 @@ class VolunteerScreen extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: 1.2 * kToolbarHeight +
+                 top: 1.2 * kToolbarHeight +
                     20 +
                     MediaQuery.of(context).size.width / 3 +
                     20, // Adjust position based on the size of previous widgets
                 left: 0,
                 right: 0,
+                child: TBRandTitleWithVerificationICon(title: 'Medicine Team', iconColor: Colors.green, brandTextSize: TextSizes.large,)),
+              Positioned(
+                top: 1.2 * kToolbarHeight +MediaQuery.of(context).size.width / 3.4, // Adjust position based on the size of previous widgets
+                left: 0,
+                right: 0,
                 child: SizedBox(
-                  height: 150, // Adjust height as needed
+                  height: 200, // Adjust height as needed
                   child: StreamBuilder<QuerySnapshot>(
                     stream: FirebaseFirestore.instance
                         .collection('volunteer')
@@ -187,11 +224,74 @@ class VolunteerScreen extends StatelessWidget {
                             item1['district'].compareTo(item2['district']));
 
                         return ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: items.length,
+                          scrollDirection: Axis.vertical,
+                          itemCount: 1,
                           shrinkWrap: true,
                           itemBuilder: (context, i) {
                             Map disaster = items[i];
+                            return Volunteer(disaster['id']);
+                          },
+                        );
+                      }
+
+                      return const Center(child: CircularProgressIndicator());
+                    },
+                  ),
+                ),
+              ),
+               Positioned(
+                 top: 1.2 * kToolbarHeight +
+                    20 +
+                    MediaQuery.of(context).size.width / 1.37 +
+                    20, // Adjust position based on the size of previous widgets
+                left: 0,
+                right: 0,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child: TBRandTitleWithVerificationICon(title: 'Rescue Team', iconColor: Colors.green, brandTextSize: TextSizes.large,),
+                )),
+              Positioned(
+                top: 1.2 * kToolbarHeight +MediaQuery.of(context).size.width / 1.4, // Adjust position based on the size of previous widgets
+                left: 0,
+                right: 0,
+                child: SizedBox(
+                  height: 200, // Adjust height as needed
+                  child: StreamBuilder<QuerySnapshot>(
+                    stream: FirebaseFirestore.instance
+                        .collection('volunteer')
+                        .snapshots(),
+                    builder: (BuildContext context, AsyncSnapshot snapshot) {
+                      if (snapshot.hasError) {
+                        return Center(child: Text('Error: ${snapshot.error}'));
+                      }
+
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator());
+                      }
+
+                      if (snapshot.hasData) {
+                        QuerySnapshot querySnapshot = snapshot.data;
+                        List<QueryDocumentSnapshot> documents =
+                            querySnapshot.docs;
+
+                        List<Map> items = documents
+                            .map((e) => {
+                                  'id': e.id,
+                                  'name': e['name'],
+                                  'number': e['number'],
+                                  'district': e['district'],
+                                })
+                            .toList();
+
+                        items.sort((item1, item2) =>
+                            item1['district'].compareTo(item2['district']));
+
+                        return ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          itemCount: 1,
+                          shrinkWrap: true,
+                          itemBuilder: (context, i) {
+                            Map disaster = items[i+1];
                             return Volunteer(disaster['id']);
                           },
                         );
