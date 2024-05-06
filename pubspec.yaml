@@ -65,6 +65,7 @@ dependencies:
   shake_event: ^0.0.9
   sensors_plus: ^5.0.1
   shake: ^1.0.1
+  vibration: ^1.8.4
 
   # Update Google Play services libraries
 

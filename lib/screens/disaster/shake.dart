@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shake/shake.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:vibration/vibration.dart';
 
 class ShakeLocationPage extends StatefulWidget {
   @override
@@ -15,6 +16,7 @@ class _ShakeLocationPageState extends State<ShakeLocationPage> {
     ShakeDetector.autoStart(onPhoneShake: () {
       _sendLocationToFirebase();
       _showSOSAlert();
+      _triggerVibration(); // Trigger haptic feedback
     });
   }
 
@@ -41,8 +43,25 @@ class _ShakeLocationPageState extends State<ShakeLocationPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('SOS Alert'),
-          content: Text('Emergency! Send help immediately!'),
+          title: Text('Emergency SOS'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'This is an emergency alert!',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 10),
+              Text('Your location has been sent to emergency services.'),
+              SizedBox(height: 10),
+              Text(
+                'Please remain calm and stay where you are until help arrives.',
+              ),
+            ],
+          ),
           actions: <Widget>[
             TextButton(
               onPressed: () {
@@ -54,6 +73,12 @@ class _ShakeLocationPageState extends State<ShakeLocationPage> {
         );
       },
     );
+  }
+
+  // Trigger haptic feedback
+  void _triggerVibration() {
+                          Vibration.vibrate(duration: 1000);
+
   }
 
   @override
