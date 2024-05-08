@@ -16,7 +16,7 @@ class VideoConferencePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: FirebaseFirestore.instance
-          .collection('userData')
+          .collection('Users')
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .get(),
       builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
@@ -31,7 +31,7 @@ class VideoConferencePage extends StatelessWidget {
         }
 
         // Retrieve username from the document snapshot
-        String username = snapshot.data!.get('name');
+        String username = snapshot.data!.get('FirstName');
 
         return SafeArea(
           child: ZegoUIKitPrebuiltVideoConference(
