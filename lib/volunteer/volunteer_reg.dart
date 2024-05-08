@@ -78,7 +78,7 @@ class _VolunteerRegState extends State<VolunteerReg> {
                       //  border: OutlineInputBorder(),
                       border: InputBorder.none,
                       filled: true,
-                      fillColor: Colors.grey[300],
+                      fillColor: const Color.fromARGB(255, 46, 46, 46),
                       //  focusColor: Colors.grey,
                       focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(color: Colors.green),
@@ -117,7 +117,7 @@ class _VolunteerRegState extends State<VolunteerReg> {
                       //  border: OutlineInputBorder(),
                       border: InputBorder.none,
                       filled: true,
-                      fillColor: Colors.grey[300],
+                      fillColor: const Color.fromARGB(255, 46, 46, 46),
                       //  focusColor: Colors.grey,
                       focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(color: Colors.green),
@@ -158,7 +158,7 @@ class _VolunteerRegState extends State<VolunteerReg> {
                       //  border: OutlineInputBorder(),
                       border: InputBorder.none,
                       filled: true,
-                      fillColor: Colors.grey[300],
+                      fillColor: const Color.fromARGB(255, 46, 46, 46),
                       //  focusColor: Colors.grey,
                       focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(color: Colors.green),
@@ -199,7 +199,7 @@ class _VolunteerRegState extends State<VolunteerReg> {
                       //  border: OutlineInputBorder(),
                       border: InputBorder.none,
                       filled: true,
-                      fillColor: Colors.grey[300],
+                      fillColor: const Color.fromARGB(255, 46, 46, 46),
                       //  focusColor: Colors.grey,
                       focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(color: Colors.green),
@@ -240,14 +240,15 @@ class _VolunteerRegState extends State<VolunteerReg> {
                       //  border: OutlineInputBorder(),
                       border: InputBorder.none,
                       filled: true,
-                      fillColor: Colors.grey[300],
+                      fillColor: const Color.fromARGB(255, 46, 46, 46),
                       //  focusColor: Colors.grey,
                       focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(color: Colors.green),
                           borderRadius: BorderRadius.circular(25.7)),
                       enabledBorder: UnderlineInputBorder(
                         borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 237, 235, 235)),
+                            color: Color.fromARGB(255, 237, 235, 235)
+                            ),
                         borderRadius: BorderRadius.circular(25.7),
                       ),
                     ),
@@ -279,7 +280,7 @@ class _VolunteerRegState extends State<VolunteerReg> {
                       //  border: OutlineInputBorder(),
                       border: InputBorder.none,
                       filled: true,
-                      fillColor: Colors.grey[300],
+                      fillColor: const Color.fromARGB(255, 46, 46, 46),
                       //  focusColor: Colors.grey,
                       focusedBorder: OutlineInputBorder(
                           borderSide: const BorderSide(color: Colors.green),
@@ -306,13 +307,18 @@ class _VolunteerRegState extends State<VolunteerReg> {
                         color: const Color.fromARGB(255, 76, 104, 175),
                         borderRadius: BorderRadius.circular(30)),
                     child: InkWell(
-                      child: const Padding(
+                      child:const  Padding(
                         padding: EdgeInsets.all(12.0),
-                        child: Text('Submit',
-                            style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white)),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: Center(
+                            child: Text('Submit',
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                          ),
+                        ),
                       ),
                       onTap: () async {
                         if (key.currentState!.validate()) {
