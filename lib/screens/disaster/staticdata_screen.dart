@@ -3,7 +3,7 @@ import 'package:disaster_management/screens/disaster/page_model.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DisasterManagementPage extends StatelessWidget {
+class StaticdataScreen extends StatelessWidget {
   final List<QuestionAnswer> faq = [
     QuestionAnswer(
       question: 'How to Prepare for Earthquakes?',
@@ -27,7 +27,7 @@ class DisasterManagementPage extends StatelessWidget {
     ),
   ];
 
-   DisasterManagementPage({super.key});
+   StaticdataScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

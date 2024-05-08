@@ -465,7 +465,7 @@ class HomeScreen extends StatelessWidget {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                       DisasterManagementPage()));
+                                                       StaticdataScreen()));
                                         },
                                       ),
                                       const Text(

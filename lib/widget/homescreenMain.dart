@@ -657,7 +657,7 @@ class _HomeScreenMainState extends State<HomeScreenMain> {
                                                               MaterialPageRoute(
                                                                   builder:
                                                                       (context) =>
-                                                                          DisasterManagementPage()));
+                                                                          StaticdataScreen()));
                                                         },
                                                       ),
                                                       const Text(

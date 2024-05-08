@@ -1,4 +1,5 @@
 import 'package:disaster_management/screens/disaster/shake.dart';
+import 'package:disaster_management/screens/disaster/staticdata_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -63,25 +64,26 @@ class SettingsScreen extends StatelessWidget {
                     subtitle: 'Update your profile information',
                     onTap: () => Get.to(() => const ProfileScreen())),
                 TSettingsMenuTile(
-                    icon: Iconsax.user_add,
-                    title: "Donors Near Me",
-                    subtitle: 'Find Donors Near You',
+                    icon: Iconsax.info_circle,
+                    title: "Awareness",
+                    subtitle: 'Precautions and Safety Measures',
                     onTap: () {
-                      Get.to(() => const ProductCarty());
+
+                      Get.to(() =>  StaticdataScreen());
 
                     }),
                 TSettingsMenuTile(
-                    icon: Iconsax.bag_tick,
-                    title: "Recent Donations",
-                    subtitle: 'View your recent donations',
+                    icon: Iconsax.danger,
+                    title: "SOS Alert",
+                    subtitle: 'Shake to send SOS Alert',
                     onTap: () => Get.to(() => ShakeLocationPage())),
+
                 TSettingsMenuTile(
-                    icon: Iconsax.bank,
-                    title: "Experties",
-                    subtitle: 'Chat with Experts',
+                    icon: Iconsax.message,
+                    title: "Ask for Help",
+                    subtitle: 'Chat with Admin',
                    onTap: () => Get.to(() =>  const IndoxmainpagePage()),),
-              
-       
+
                 const SizedBox(height: TSizes.spaceBtwSections),
                 SizedBox(
                   width: double.infinity,
