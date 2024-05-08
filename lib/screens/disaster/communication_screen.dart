@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:disaster_management/conferance/ongoing_meets.dart';
+import 'package:disaster_management/conferance/vedioconf.dart';
 import 'package:flutter/material.dart';
 
 class MeetScreen extends StatefulWidget {
@@ -212,320 +213,338 @@ class _MeetScreenState extends State<MeetScreen> {
                     scrollDirection: Axis.vertical,
                     children: [
                       // Horizontal list items...
-                     InkWell(
-                  child: Card(
-                      elevation: 5.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Container(
-                          width: MediaQuery.of(context).size.width / 2.5,
-                          height: 100,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: .0, vertical: .0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                              Icons.call,
-                                              color: Color.fromARGB(
-                                                  255, 75, 77, 76),
-                                            ),
-                                            Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 4.0, vertical: 4.0),
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 3.0, vertical: 3.0),
-                                    child: const Text('Rescue Team S1',
-                                        style: TextStyle(
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.bold,
-                                            color: Color.fromARGB(
-                                                255, 195, 17, 4))),
-                                  ),
-                                  
-                                    ],
-                                  ),
-                            
-                                  // SizedBox(height: 5.0),
-                                  Container(
-                                    child: const Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.location_on,
-                                              color: Color.fromARGB(
-                                                  255, 75, 77, 76),
-                                            ),
-                                            SizedBox(width: 10.0),
-                                            Text(
-                                              'Kozhikode  ',
-                                              style: TextStyle(
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),                                              SizedBox(width: 5.0),
+                     GestureDetector(
+                      onTap: () {
+                                                                       _showCodeInputDialog(context);
 
-                                            Icon(
-                                              Icons.track_changes_outlined,
-                                              color: Color.fromARGB(
-                                                  255, 75, 77, 76),
-                                            ),
-                                            Text(
-                                              '  Koyilandy',
-                                              style: TextStyle(
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.bold,
+                      },
+                       child: InkWell(
+                                         child: Card(
+                        elevation: 5.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Container(
+                            width: MediaQuery.of(context).size.width / 2.5,
+                            height: 100,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: .0, vertical: .0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                                Icons.call,
+                                                color: Color.fromARGB(
+                                                    255, 75, 77, 76),
                                               ),
-                                            ),
-                                          ],
-                                        ),
+                                              Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 4.0, vertical: 4.0),
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 3.0, vertical: 3.0),
+                                      child: const Text('Rescue Team S1',
+                                          style: TextStyle(
+                                              fontSize: 18.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: Color.fromARGB(
+                                                  255, 195, 17, 4))),
+                                    ),
+                                    
                                       ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(width: 12.0),
-                              // Container(
-                              //     child: Row(
-                              //   children: [
-                              //     const Icon(Icons.location_on,
-                              //         color: Color.fromARGB(255, 75, 77, 76)),
-                              //     const SizedBox(width: 5.0),
-                              //     Text('${data['district']}',
-                              //         style: const TextStyle(
-                              //           fontSize: 15.0,
-                              //           fontWeight: FontWeight.bold,
-                              //           // color: Color.fromARGB(153, 23, 1, 1),
-                              //         )),
-                              //   ],
-                              // ))
-                            ],
-                          ))),
-                ),
+                              
+                                    // SizedBox(height: 5.0),
+                                    Container(
+                                      child: const Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.location_on,
+                                                color: Color.fromARGB(
+                                                    255, 75, 77, 76),
+                                              ),
+                                              SizedBox(width: 10.0),
+                                              Text(
+                                                'Kozhikode  ',
+                                                style: TextStyle(
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),                                              SizedBox(width: 5.0),
+                        
+                                              Icon(
+                                                Icons.track_changes_outlined,
+                                                color: Color.fromARGB(
+                                                    255, 75, 77, 76),
+                                              ),
+                                              Text(
+                                                '  Koyilandy',
+                                                style: TextStyle(
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(width: 12.0),
+                                // Container(
+                                //     child: Row(
+                                //   children: [
+                                //     const Icon(Icons.location_on,
+                                //         color: Color.fromARGB(255, 75, 77, 76)),
+                                //     const SizedBox(width: 5.0),
+                                //     Text('${data['district']}',
+                                //         style: const TextStyle(
+                                //           fontSize: 15.0,
+                                //           fontWeight: FontWeight.bold,
+                                //           // color: Color.fromARGB(153, 23, 1, 1),
+                                //         )),
+                                //   ],
+                                // ))
+                              ],
+                            ))),
+                                       ),
+                     ),
                 const SizedBox(
                                                 height: 8,
                                               ),
-                   InkWell(
-                  child: Card(
-                      elevation: 5.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Container(
-                          width: MediaQuery.of(context).size.width / 2.5,
-                          height: 100,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: .0, vertical: .0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                              Icons.call,
-                                              color: Color.fromARGB(
-                                                  255, 75, 77, 76),
-                                            ),
-                                            Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 4.0, vertical: 4.0),
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 3.0, vertical: 3.0),
-                                    child: const Text('Rescue Team S2',
-                                        style: TextStyle(
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.bold,
-                                            color: Color.fromARGB(
-                                                255, 195, 17, 4))),
-                                  ),
-                                 
-                                    ],
-                                  ),
-                            
-                                  // SizedBox(height: 5.0),
-                                  Container(
-                                    child: const Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.location_on,
-                                              color: Color.fromARGB(
-                                                  255, 75, 77, 76),
-                                            ),
-                                            SizedBox(width: 10.0),
-                                            Text(
-                                              'Kozhikode  ',
-                                              style: TextStyle(
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),                                              SizedBox(width: 5.0),
+                   GestureDetector(
+                      onTap: () {
+                                                                       _showCodeInputDialog(context);
 
-                                            Icon(
-                                              Icons.track_changes_outlined,
-                                              color: Color.fromARGB(
-                                                  255, 75, 77, 76),
-                                            ),
-                                            Text(
-                                              ' Ulliyeri',
-                                              style: TextStyle(
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.bold,
+                      },
+                     child: InkWell(
+                                       child: Card(
+                        elevation: 5.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Container(
+                            width: MediaQuery.of(context).size.width / 2.5,
+                            height: 100,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: .0, vertical: .0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                                Icons.call,
+                                                color: Color.fromARGB(
+                                                    255, 75, 77, 76),
                                               ),
-                                            ),
-                                          ],
-                                        ),
+                                              Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 4.0, vertical: 4.0),
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 3.0, vertical: 3.0),
+                                      child: const Text('Rescue Team S2',
+                                          style: TextStyle(
+                                              fontSize: 18.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: Color.fromARGB(
+                                                  255, 195, 17, 4))),
+                                    ),
+                                   
                                       ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(width: 12.0),
-                              // Container(
-                              //     child: Row(
-                              //   children: [
-                              //     const Icon(Icons.location_on,
-                              //         color: Color.fromARGB(255, 75, 77, 76)),
-                              //     const SizedBox(width: 5.0),
-                              //     Text('${data['district']}',
-                              //         style: const TextStyle(
-                              //           fontSize: 15.0,
-                              //           fontWeight: FontWeight.bold,
-                              //           // color: Color.fromARGB(153, 23, 1, 1),
-                              //         )),
-                              //   ],
-                              // ))
-                            ],
-                          ))),
-                ),const SizedBox(
+                              
+                                    // SizedBox(height: 5.0),
+                                    Container(
+                                      child: const Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.location_on,
+                                                color: Color.fromARGB(
+                                                    255, 75, 77, 76),
+                                              ),
+                                              SizedBox(width: 10.0),
+                                              Text(
+                                                'Kozhikode  ',
+                                                style: TextStyle(
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),                                              SizedBox(width: 5.0),
+                     
+                                              Icon(
+                                                Icons.track_changes_outlined,
+                                                color: Color.fromARGB(
+                                                    255, 75, 77, 76),
+                                              ),
+                                              Text(
+                                                ' Ulliyeri',
+                                                style: TextStyle(
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(width: 12.0),
+                                // Container(
+                                //     child: Row(
+                                //   children: [
+                                //     const Icon(Icons.location_on,
+                                //         color: Color.fromARGB(255, 75, 77, 76)),
+                                //     const SizedBox(width: 5.0),
+                                //     Text('${data['district']}',
+                                //         style: const TextStyle(
+                                //           fontSize: 15.0,
+                                //           fontWeight: FontWeight.bold,
+                                //           // color: Color.fromARGB(153, 23, 1, 1),
+                                //         )),
+                                //   ],
+                                // ))
+                              ],
+                            ))),
+                                     ),
+                   ),const SizedBox(
                                                 height: 8,
                                               ),
-                 InkWell(
-                  child: Card(
-                      elevation: 5.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Container(
-                          width: MediaQuery.of(context).size.width / 2.5,
-                          height: 100,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: .0, vertical: .0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                              Icons.call,
-                                              color: Color.fromARGB(
-                                                  255, 75, 77, 76),
-                                            ),
-                                            Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 4.0, vertical: 4.0),
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 3.0, vertical: 3.0),
-                                    child: const Text('Rescue Team S3',
-                                        style: TextStyle(
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.bold,
-                                            color: Color.fromARGB(
-                                                255, 195, 17, 4))),
-                                  ),
-                                 
-                                    ],
-                                  ),
-                            
-                                  // SizedBox(height: 5.0),
-                                  Container(
-                                    child: const Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.location_on,
-                                              color: Color.fromARGB(
-                                                  255, 75, 77, 76),
-                                            ),
-                                            SizedBox(width: 10.0),
-                                            Text(
-                                              'Kozhikode  ',
-                                              style: TextStyle(
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),                                              SizedBox(width: 5.0),
+                 GestureDetector(
+                      onTap: () {
+                                                                       _showCodeInputDialog(context);
 
-                                            Icon(
-                                              Icons.track_changes_outlined,
-                                              color: Color.fromARGB(
-                                                  255, 75, 77, 76),
-                                            ),
-                                            Text(
-                                              ' Balussery',
-                                              style: TextStyle(
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.bold,
+                      },
+                   child: InkWell(
+                    child: Card(
+                        elevation: 5.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Container(
+                            width: MediaQuery.of(context).size.width / 2.5,
+                            height: 100,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: .0, vertical: .0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                                Icons.call,
+                                                color: Color.fromARGB(
+                                                    255, 75, 77, 76),
                                               ),
-                                            ),
-                                          ],
-                                        ),
+                                              Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 4.0, vertical: 4.0),
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 3.0, vertical: 3.0),
+                                      child: const Text('Rescue Team S3',
+                                          style: TextStyle(
+                                              fontSize: 18.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: Color.fromARGB(
+                                                  255, 195, 17, 4))),
+                                    ),
+                                   
                                       ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(width: 12.0),
-                              // Container(
-                              //     child: Row(
-                              //   children: [
-                              //     const Icon(Icons.location_on,
-                              //         color: Color.fromARGB(255, 75, 77, 76)),
-                              //     const SizedBox(width: 5.0),
-                              //     Text('${data['district']}',
-                              //         style: const TextStyle(
-                              //           fontSize: 15.0,
-                              //           fontWeight: FontWeight.bold,
-                              //           // color: Color.fromARGB(153, 23, 1, 1),
-                              //         )),
-                              //   ],
-                              // ))
-                            ],
-                          ))),
-                ),
+                              
+                                    // SizedBox(height: 5.0),
+                                    Container(
+                                      child: const Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.location_on,
+                                                color: Color.fromARGB(
+                                                    255, 75, 77, 76),
+                                              ),
+                                              SizedBox(width: 10.0),
+                                              Text(
+                                                'Kozhikode  ',
+                                                style: TextStyle(
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),                                              SizedBox(width: 5.0),
+                   
+                                              Icon(
+                                                Icons.track_changes_outlined,
+                                                color: Color.fromARGB(
+                                                    255, 75, 77, 76),
+                                              ),
+                                              Text(
+                                                ' Balussery',
+                                                style: TextStyle(
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(width: 12.0),
+                                // Container(
+                                //     child: Row(
+                                //   children: [
+                                //     const Icon(Icons.location_on,
+                                //         color: Color.fromARGB(255, 75, 77, 76)),
+                                //     const SizedBox(width: 5.0),
+                                //     Text('${data['district']}',
+                                //         style: const TextStyle(
+                                //           fontSize: 15.0,
+                                //           fontWeight: FontWeight.bold,
+                                //           // color: Color.fromARGB(153, 23, 1, 1),
+                                //         )),
+                                //   ],
+                                // ))
+                              ],
+                            ))),
+                                   ),
+                 ),
                     ],
                   ),
                 ),
@@ -577,6 +596,8 @@ Future<void> _showCodeInputDialog(BuildContext context) async {
 void codeconfirm(String enteredCode, context) {
   if (enteredCode == '1234') {
     // Navigate to VolunteerList page
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const VideoConferencePage( conferenceID: '1234',)));
   } else {
     // Show error message
     ScaffoldMessenger.of(context).showSnackBar(
