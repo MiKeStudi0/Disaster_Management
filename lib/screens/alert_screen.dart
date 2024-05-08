@@ -92,7 +92,7 @@ class _AppNotificationsScreenState extends State<AppNotificationsScreen> {
                 width: 360,
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
                 decoration: BoxDecoration(
-                  color: Colors.blue[50],
+                  color: const Color.fromARGB(255, 74, 75, 75),
                   borderRadius: BorderRadius.circular(18),
                   border: Border.all(
                     color: Colors.blueGrey[200]!.withOpacity(0.2),
