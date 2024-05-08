@@ -23,7 +23,7 @@ class OnboardingScreen extends StatelessWidget {
             onPageChanged: controller.updatePageIndicator,
             children: const [
               OnBoardingPage(
-                  image: 'Assets2/Images/content/onbord.png',
+                  image: 'Assets2/Images/on_boarding_images/onbord.jpg',
                   title: TTexts.onBoardingTitle1,
                   subTitle: TTexts.onBoardingSubTitle1),
               OnBoardingPage(
@@ -77,7 +77,7 @@ class OnBoardingDotNavigaton extends StatelessWidget {
     final controller = OnboardingController.instance;
     final dark = THelperFunctions.isDarkMode(context);
     return Positioned(
-      bottom: TDeviceUtils.getBottomNavigationBarHeight() + 25,
+      bottom: TDeviceUtils.getBottomNavigationBarHeight() + 20,
       left: TSizes.defaultSpace,
       child: SmoothPageIndicator(
         controller: controller.pageController,
@@ -125,7 +125,17 @@ class OnBoardingPage extends StatelessWidget {
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: Column(
         children: [
-          Image(
+         
+          Padding(
+            padding: const EdgeInsets.only(top: 80.0),
+            child: Text(
+              title,
+              style: Theme.of(context).textTheme.headlineMedium,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          const SizedBox(height: TSizes.spaceBtwItems),
+           Image(
             fit: BoxFit.contain,
             width: THelperFunctions.screenWidth() * 1,
             height: THelperFunctions.screenHeight() * 0.6,
@@ -133,16 +143,11 @@ class OnBoardingPage extends StatelessWidget {
               image,
             ),
           ),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.headlineMedium,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: TSizes.spaceBtwItems),
+    SizedBox(height: 15),
           Text(
             subTitle,
             style: Theme.of(context).textTheme.bodyMedium,
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.left,
           )
         ],
       ),

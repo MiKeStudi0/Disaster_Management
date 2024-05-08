@@ -83,7 +83,6 @@ class UserModel {
       'Gender': gender,
       'City': city,
       'Street': street,
-      'Eligible': eligible,
 
     };
    

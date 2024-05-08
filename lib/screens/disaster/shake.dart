@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:disaster_management/common/appbar.dart';
 import 'package:disaster_management/utils/constants/image_strings.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shake/shake.dart';
@@ -15,6 +16,7 @@ class ShakeLocationPage extends StatefulWidget {
 }
 
 class _ShakeLocationPageState extends State<ShakeLocationPage> {
+  final userId = FirebaseAuth.instance.currentUser!.uid;
   @override
   void initState() {
     super.initState();
@@ -23,25 +25,27 @@ class _ShakeLocationPageState extends State<ShakeLocationPage> {
       _showSOSAlert();
       _triggerVibration(); // Trigger haptic feedback
     });
-  }
+  }Future<void> _sendLocationToFirebase() async {
+  try {
+    Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
 
-  Future<void> _sendLocationToFirebase() async {
-    try {
-      Position position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high);
-      FirebaseFirestore firestore = FirebaseFirestore.instance;
-      CollectionReference locations = firestore.collection('locations');
-      await locations.add({
-        'latitude': position.latitude,
-        'longitude': position.longitude,
-        'timestamp': DateTime.now(),
-      });
-      print(
-          'Location sent to Firebase: ${position.latitude}, ${position.longitude}');
-    } catch (e) {
-      print('Error sending location: $e');
-    }
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference locations = firestore.collection('Alert_locations');
+
+    await locations.doc(userId).set({
+      'latitude': position.latitude,
+      'longitude': position.longitude,
+      'timestamp': DateTime.now(),
+    });
+
+    print(
+        'Location sent to Firebase: ${position.latitude}, ${position.longitude}');
+  } catch (e) {
+    print('Error sending location: $e');
   }
+}
 
   Future<void> _showSOSAlert() async {
     showDialog(

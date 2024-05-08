@@ -12,13 +12,13 @@ class TTexts {
 
 
   // -- OnBoarding Texts
-  static const String onBoardingTitle1 = "Become a Hero Today!";
-  static const String onBoardingTitle2 = "Find Your Blood Partner!";
-  static const String onBoardingTitle3 = "Find Near By Blood Banks!";
+  static const String onBoardingTitle1 = "Check Your Alertness!";
+  static const String onBoardingTitle2 = "Communication Channel";
+  static const String onBoardingTitle3 = "Recue Camp Navigation";
 
-  static const String onBoardingSubTitle1 = "You Can Save Lives by Donating Blood!, Donate Blood, Save a Life!, It's That Simple!";
-  static const String onBoardingSubTitle2 = "Find Your Blood Partner, Search for Blood Donors, and Request Blood Online!";
-  static const String onBoardingSubTitle3 = "Find Near By Blood Banks and Hospitals, Get Blood in Emergency Situations!";
+  static const String onBoardingSubTitle1 = "Always Check the Alert Message ,If you are in Danger You can Use SOS!";
+  static const String onBoardingSubTitle2 = "Communication Channel to Connect with Your Loved Ones in Emergency Situations!";
+  static const String onBoardingSubTitle3 = "Navigation to the Nearest Rescue Camp in Emergency Situations!";
 
 
   // -- Authentication Forms
